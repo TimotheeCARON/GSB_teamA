@@ -8,7 +8,19 @@
         <input type="text" name="Dosage" />Dosage<br />
         <input type="text" name="pxHT" />pxHT<br />
         <input type="text" name="pxEchantillon" />pxEchantillon<br />
-        
+        <select>
+            <?php
+            
+            foreach ($lesFamillesMedicaments as $uneFamille){
+                $idFamille=$uneFamille['idFamille'];
+                $nomFamille=$uneFamille['nomFamille'];
+		    
+            
+            echo '<option value= '.$idFamille.' > '.$nomFamille.' </option>';
+            }
+            ?>
+            
+        </select> 
 
         <input type="submit" value="Envoyer" />
     
@@ -40,12 +52,12 @@
 			$id = $unMedicament['id_produit'];
 			$nom = $unMedicament['Nom_commercial'];
 			$famille = $unMedicament['nomFamille'];
-                        $effet = $unMedicament['Effet_therapeutique'];
-                        $contre_indication = $unMedicament['Contre_indication'];
-                        $presentation = $unMedicament['Presentation'];
-                        $dosage = $unMedicament['Dosage'];
-                        $prix_HT = $unMedicament['pxHT'];
-                        $prix_echantillon = $unMedicament['pxEchantillon'];
+            $effet = $unMedicament['Effet_therapeutique'];
+            $contre_indication = $unMedicament['Contre_indication'];
+            $presentation = $unMedicament['Presentation'];
+            $dosage = $unMedicament['Dosage'];
+            $prix_HT = $unMedicament['pxHT'];
+            $prix_echantillon = $unMedicament['pxEchantillon'];
 		?>
                 <tr>
                     <td><?php echo $id ?></td>
@@ -59,7 +71,9 @@
                     <td><?php echo $prix_echantillon ?></td>
                  </tr>
                  <?php
-			}
-		?>
+            } ?>
+
+
+            
     </table>
 </div>

@@ -18,5 +18,6 @@ switch($action){
 }
 
 $lesMedicaments= $pdo->getMedicaments();
+$lesFamillesMedicaments = $pdo->getFamillesMedicaments();
 include("vues/v_medicaments.php");
 ?>

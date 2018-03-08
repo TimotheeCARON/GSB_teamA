@@ -162,6 +162,12 @@ class PdoGsb{
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 	}
+	public function getFamillesMedicaments(){
+		$req = "select nomFamille FROM famille;";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
+		}
 		public function setMedicament ($nom_commercial,$effet_therapeutique,$contre_indication,$presentation,$dosage,$pxHT,$pxEchantillon){
 		$req = "INSERT INTO medicament (nom_commercial,Effet_therapeutique,Contre_indication,Presentation,Dosage,pxHT,pxEchantillon) 
 		VALUES ($nom_commercial,$effet_therapeutique,$contre_indication,$presentation,$dosage,$pxHT,$pxEchantillon)";

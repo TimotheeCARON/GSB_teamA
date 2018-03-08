@@ -39,7 +39,7 @@
 		  {
 			$id = $unMedicament['id_produit'];
 			$nom = $unMedicament['Nom_commercial'];
-			$famille = "jambon";
+			$famille = $unMedicament['nomFamille'];
                         $effet = $unMedicament['Effet_therapeutique'];
                         $contre_indication = $unMedicament['Contre_indication'];
                         $presentation = $unMedicament['Presentation'];

@@ -39,13 +39,13 @@
 		  {
 			$id = $unMedicament['id_produit'];
 			$nom = $unMedicament['Nom_commercial'];
-			$famille = "jambon";
-                        $effet = $unMedicament['Effet_therapeutique'];
-                        $contre_indication = $unMedicament['Contre_indication'];
-                        $presentation = $unMedicament['Presentation'];
-                        $dosage = $unMedicament['Dosage'];
-                        $prix_HT = $unMedicament['pxHT'];
-                        $prix_echantillon = $unMedicament['pxEchantillon'];
+			$famille = $unMedicament['nomFamille'];
+            $effet = $unMedicament['Effet_therapeutique'];
+            $contre_indication = $unMedicament['Contre_indication'];
+            $presentation = $unMedicament['Presentation'];
+            $dosage = $unMedicament['Dosage'];
+            $prix_HT = $unMedicament['pxHT'];
+            $prix_echantillon = $unMedicament['pxEchantillon'];
 		?>
                 <tr>
                     <td><?php echo $id ?></td>

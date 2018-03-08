@@ -10,6 +10,6 @@
   <body>
     <div id="page">
       <div id="entete">
-        <img src="./images/logo.jpg" id="logoGSB" alt="ISSOU LA CHANCLA" title="JPP" />
+        <img src="./images/logo4.jpg" id="logoGSB" alt="ISSOU LA CHANCLA" title="JPP" />
         <h1>Suivi du remboursement des frais</h1>
       </div>

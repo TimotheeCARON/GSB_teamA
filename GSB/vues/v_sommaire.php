@@ -23,8 +23,15 @@
            </li>-->
  	         
            <li class="smenu">
-              <a href="index.php?uc=medicaments&action=afficherMedicaments" title="Afficher medicaments">Afficher medicaments</a>
+              <a href="index.php?uc=medicaments&action=Medicaments" title="medicaments">Medicaments</a>
            </li>
+           <li class="smenu">
+              <a href="index.php?uc=praticiens&action=Praticiens" title="Praticiens ">Praticiens</a>
+           </li>
+           <li class="smenu">
+              <a href="index.php?uc=visiteurs&action=Visiteurs" title="Visiteurs ">Visiteurs</a>
+           </li>
+          
            <li class="smenu">
               <a href="index.php?uc=connexion&action=deconnexion" title="Se déconnecter">Déconnexion</a>
            </li>

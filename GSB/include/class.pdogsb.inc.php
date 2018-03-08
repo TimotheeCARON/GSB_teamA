@@ -24,7 +24,7 @@ class PdoGsb{
 		private static $monPdoGsb=null;*/
 
       	private static $serveur='mysql:host=localhost';
-      	private static $bdd='dbname=GSB_TeamA';   		
+      	private static $bdd='dbname=gsb_teamA';   		
       	private static $user='root' ;    		
       	private static $mdp='root' ;	
 	private static $monPdo;
@@ -157,7 +157,7 @@ class PdoGsb{
 		}
 	}*/
         public function getMedicaments (){
-		$req = "select id_produit,Nom_commercial,Effet_therapeutique,Contre_indication,Presentation,Dosage,pxHT,pxEchantillon FROM Medicament;";
+		$req = "select M.id_produit,M.Nom_commercial,M.Effet_therapeutique,M.Contre_indication,M.Presentation,M.Dosage,M.pxHT,M.pxEchantillon,F.nomFamille FROM Medicament AS M INNER JOIN famille AS F on M.idFamille=F.idFamille;";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;

@@ -13,6 +13,12 @@ switch($uc){
 	case 'connexion':{
 		include("controleurs/c_connexion.php");break;
 	}
+	case 'praticiens' :{
+        include("controleurs/c_praticiens.php");break;
+	}
+	case 'visiteurs' :{
+        include("controleurs/c_visiteurs.php");break;
+    }
     case 'medicaments' :{
         include("controleurs/c_medicaments.php");break;
     }

@@ -24,7 +24,7 @@
 </div>
 
 <div id="contenu">
-      <h2>Gérer les médicaments</h2>
+      <h2>Gérer les visiteurs médicaux</h2>
          
       
   	<table>
@@ -43,16 +43,16 @@
                 
              </tr>
               <?php      
-          foreach ( $lesMedicaments as $unMedicament ) 
+          foreach ( $lesVisiteurs as $unVisiteur ) 
 		  {
-			$id = $unMedicament['id_produit'];
-			$nom = $unMedicament['Nom_commercial'];
-			$prenom = $unMedicament['nomFamille'];
-            $adresse = $unMedicament['Effet_therapeutique'];
-            $cp = $unMedicament['Contre_indication'];
-            $ville = $unMedicament['Presentation'];
-            $date_embauche = $unMedicament['Dosage'];
-            $id_secteur = $unMedicament['pxHT'];            
+			$id = $unVisiteur['id_produit'];
+			$nom = $unVisiteur['Nom_commercial'];
+			$prenom = $unVisiteur['nomFamille'];
+            $adresse = $unVisiteur['Effet_therapeutique'];
+            $cp = $unVisiteur['Contre_indication'];
+            $ville = $unVisiteur['Presentation'];
+            $date_embauche = $unVisiteur['Dosage'];
+            $id_secteur = $unvisiteur['pxHT'];            
 		?>
                 <tr>
                     <td><?php echo $id ?></td>

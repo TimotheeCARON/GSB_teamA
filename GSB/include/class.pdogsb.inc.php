@@ -173,6 +173,28 @@ class PdoGsb{
 		VALUES ($nom_commercial,$effet_therapeutique,$contre_indication,$presentation,$dosage,$pxHT,$pxEchantillon)";
 		$res = PdoGsb::$monPdo->query($req);
 	}
+
+
+		/*
+		public function getVisiteur (){
+		$req = "select M.id_produit,M.Nom_commercial,M.Effet_therapeutique,M.Contre_indication,M.Presentation,M.Dosage,M.pxHT,M.pxEchantillon,F.nomFamille FROM Visiteur_medical AS V INNER JOIN famille AS F on M.idFamille=F.idFamille;";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
+		*/
+
+
+		/*public function getVisite(){
+		$req = "select nomFamille FROM famille;";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;*/
+
+		public function setVisiteur ($nom,$prenom,$adresse,$ville,$dateEmbauche,$id_secteur){
+			$req = "INSERT INTO visiteur_medical (nom,prenom,adresse,cp,ville,dateEmbauche,id_secteur) 
+			VALUES ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$id_secteur)";
+			$res = PdoGsb::$monPdo->query($req);
+
 /**
  * Met à jour la table ligneFraisForfait
  

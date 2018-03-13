@@ -196,6 +196,7 @@ class PdoGsb{
 			$req = "INSERT INTO visiteur_medical (nom,prenom,adresse,cp,ville,dateEmbauche,id_secteur) 
 			VALUES ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$id_secteur)";
 			$res = PdoGsb::$monPdo->query($req);
+		}
 
 	//Praticiens
 		public function getPraticiens (){

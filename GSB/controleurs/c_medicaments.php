@@ -1,9 +1,6 @@
 <?php
 include("vues/v_sommaire.php");
-$idVisiteur = $_SESSION['idVisiteur'];
-$mois = getMois(date("d/m/Y"));
-$numAnnee =substr( $mois,0,4);
-$numMois =substr( $mois,4,2);
+$idVisiteur = $_SESSION['idVisiteur']; 
 $action = $_REQUEST['action'];
 
 switch($action){
@@ -12,8 +9,18 @@ switch($action){
 		
 	  	 	$pdo->AfficherMedocs($Numero,$Nom,$Famille,$Effet,$Presentation,$Dosage,$ContreIndication,$PrixHT,$PrixEchantillon);
 	}*/
-	case 'valideConnexion':{
-
+	case 'NewMedoc':{
+		if(!empty($_POST)){
+			$nomMedoc=$_POST['nomMedoc'];
+			$Effet_therapeutique=$_POST['Effet_therapeutique'];
+			$Contre_indication=$_POST['Contre_indication'];
+			$Presentation=$_POST['Presentation'];
+			$Dosage=$_POST['Dosage'];
+			$pxHT=$_POST['pxHT'];
+			$pxEchantillon=$_POST['pxEchantillon'];
+			$famille=$_POST['famille'];
+			setMedicament ($nomMedoc,$Effet_thérapeutique,$Contre_indication,$Presentation,$Dosage,$pxHT,$pxEchantillon,$famille);
+		}
 	}
 }
 

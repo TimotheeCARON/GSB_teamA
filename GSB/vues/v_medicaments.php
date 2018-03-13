@@ -1,14 +1,14 @@
 <div id="contenu">
     <h2>Enregistrer un nouveau médicament</h2>
     <form method="POST" action="index.php?uc=medicaments&action=NewMedoc">
-        <input type="text" name="nomMedoc" />Nom du médicament<br />
-        <input type="text" name="Effet_therapeutique" />Effet thérapeutique<br />
-        <input type="text" name="Contre_indication" />Contre indication<br />
-        <input type="text" name="Presentation" />Presentation<br />
-        <input type="text" name="Dosage" />Dosage<br />
-        <input type="text" name="pxHT" />pxHT<br />
-        <input type="text" name="pxEchantillon" />pxEchantillon<br />
-        <select>
+        <input type="text" name="nomMedoc" id="nomMedoc" />Nom du médicament<br />
+        <input type="text" name="Effet_therapeutique" id="Effet_therapeutique"/>Effet thérapeutique<br />
+        <input type="text" name="Contre_indication" id="Contre_indication"/>Contre indication<br />
+        <input type="text" name="Presentation" id="Presentation"/>Presentation<br />
+        <input type="text" name="Dosage" id="Dosage"/>Dosage<br />
+        <input type="text" name="pxHT" id="pxHT"/>pxHT<br />
+        <input type="text" name="pxEchantillon" id="pxEchantillon"/>pxEchantillon<br />
+        <select name="famille">
             <?php
                 foreach ($lesFamillesMedicaments as $uneFamille){
                     echo '<option value= '.$uneFamille['idFamille'].' > '.$uneFamille['nomFamille'].' </option>';
@@ -27,7 +27,7 @@
          
       
   	<table>
-  	   <caption>Descriptif des éléments hors forfait -
+  	   <caption>Descriptif des médicaments -
            </caption>
              <tr>
                 <th class="id">Numero</th>

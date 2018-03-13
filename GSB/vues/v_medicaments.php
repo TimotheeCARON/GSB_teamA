@@ -8,12 +8,11 @@
         <input type="text" name="Dosage" />Dosage<br />
         <input type="text" name="pxHT" />pxHT<br />
         <input type="text" name="pxEchantillon" />pxEchantillon<br />
-        <?php
-            
-        
-            foreach ($lesFamillesMedicaments as $uneFamille){
-                echo '<option value= '.$uneFamille['idFamille'].' > '.$uneFamille['nomFamille'].' </option>';
-            }
+        <select>
+            <?php
+                foreach ($lesFamillesMedicaments as $uneFamille){
+                    echo '<option value= '.$uneFamille['idFamille'].' > '.$uneFamille['nomFamille'].' </option>';
+                }
             ?>
             
         </select> 

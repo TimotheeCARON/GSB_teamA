@@ -10,12 +10,9 @@
         <input type="text" name="pxEchantillon" />pxEchantillon<br />
         <?php
             
+        
             foreach ($lesFamillesMedicaments as $uneFamille){
-                $idFamille=$uneFamille['idFamille'];
-                $nomFamille=$uneFamille['nomFamille'];
-		    
-            
-            echo '<option value= '.$idFamille.' > '.$nomFamille.' </option>';
+                echo '<option value= '.$uneFamille['idFamille'].' > '.$uneFamille['nomFamille'].' </option>';
             }
             ?>
             

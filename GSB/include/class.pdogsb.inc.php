@@ -200,13 +200,13 @@ class PdoGsb{
 
 	//Praticiens
 		public function getPraticiens (){
-		$req = "select P.Code, P.Raison_sociale, P.Adresse, P.Telephone, P.Contact, P.Coef_notoriete, P.coef_confiance, P.idSpecialite FROM Praticiens AS P INNER JOIN Specialites AS S on S.idSpecialiste=P.idSpecialiste;";
+		$req = "select P.Code, P.Raison_sociale, P.Adresse, P.Telephone, P.Contact, P.Coef_notoriete, P.coef_confiance, S.nomSpecialite FROM Praticien AS P INNER JOIN Specialite AS S on S.idSpecialite=P.idSpecialite;";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 	}
-		public function getSpecialites(){
-		$req = "select nomSpecialiste FROM specialite;";
+		public function getSpecialite(){
+		$req = "select nomSpecialite FROM specialite;";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;

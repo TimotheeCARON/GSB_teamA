@@ -1,9 +1,7 @@
 <?php
 include("vues/v_sommaire.php");
 $idVisiteur = $_SESSION['idVisiteur'];
-$mois = getMois(date("d/m/Y"));
-$numAnnee =substr( $mois,0,4);
-$numMois =substr( $mois,4,2);
+
 $action = $_REQUEST['action'];
 
 switch($action){
@@ -17,7 +15,8 @@ switch($action){
 	}
 }
 
-$lesSpecialites= $pdo->getSpecialites();
+$lesSpecialites= $pdo->getSpecialite();
+$lesPraticiens= $pdo->getPraticiens();
 
 include("vues/v_praticiens.php");
 ?>

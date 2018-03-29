@@ -1,11 +1,7 @@
 <?php
 include("vues/v_sommaire.php");
-<<<<<<< HEAD
 $idVisiteur = $_SESSION['idVisiteur']; 
-=======
-$idVisiteur = $_SESSION['idVisiteur'];
->>>>>>> 4000f22f9aaf3263e95d536150478a1a41ec819e
-$action = $_REQUEST['action'];
+
 
 switch($action){
 	/*case 'AFFICHEMedicaments':{

@@ -177,20 +177,20 @@ class PdoGsb{
 	}
 
 	//Visiteurs
-		/*
+		
 		public function getVisiteur (){
-		$req = "select M.id_produit,M.Nom_commercial,M.Effet_therapeutique,M.Contre_indication,M.Presentation,M.Dosage,M.pxHT,M.pxEchantillon,F.nomFamille FROM Visiteur_medical AS V INNER JOIN famille AS F on M.idFamille=F.idFamille;";
+		$req = "select nom, prenom, adresse, cp, ville, dateEmbauche, idSecteur from visiteur_medical;";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
-		*/
+		}
 
-
-		/*public function getVisite(){
-		$req = "select nomFamille FROM famille;";
+		public function getVisite(){
+		$req = "select V.id, V.nom, V.prenom, V.adresse, V.cp, V.ville,V.dateEmbauche, Vi.date_visite FROM Visiteur_medical AS V INNER JOIN visiter AS Vi on V.id=Vi.id ;";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
-		return $lesLignes;*/
+		return $lesLignes;
+		}
 
 		public function setVisiteur ($nom,$prenom,$adresse,$ville,$dateEmbauche,$id_secteur){
 			$req = "INSERT INTO visiteur_medical (nom,prenom,adresse,cp,ville,dateEmbauche,id_secteur) 

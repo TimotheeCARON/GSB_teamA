@@ -19,7 +19,8 @@ switch($action){
 			$pxHT=$_POST['pxHT'];
 			$pxEchantillon=$_POST['pxEchantillon'];
 			$famille=$_POST['famille'];
-			setMedicament ($nomMedoc,$Effet_thérapeutique,$Contre_indication,$Presentation,$Dosage,$pxHT,$pxEchantillon,$famille);
+			$pdo->setMedicament ($nomMedoc,$Effet_therapeutique,$Contre_indication,$Presentation,$Dosage,$pxHT,$pxEchantillon,$famille);
+			//echo "<script>alert(\"ca passe\")</script>"; 
 		}
 	}
 }

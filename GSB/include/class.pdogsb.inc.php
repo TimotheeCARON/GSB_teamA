@@ -159,20 +159,21 @@ class PdoGsb{
 
 	//Medicaments
 		public function getMedicaments (){
-		$req = "select M.id_produit,M.Nom_commercial,M.Effet_therapeutique,M.Contre_indication,M.Presentation,M.Dosage,M.pxHT,M.pxEchantillon,F.nomFamille FROM Medicament AS M INNER JOIN famille AS F on M.idFamille=F.idFamille;";
+		$req = "select M.id_produit,M.Nom_commercial,M.Effet_therapeutique,M.Contre_indication,M.Presentation,M.Dosage,M.pxHT,M.pxEchantillon,F.nomFamille FROM Medicament AS M INNER JOIN famille AS F on M.idFamille=F.idFamille order by M.id_produit;";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 	}
 		public function getFamillesMedicaments(){
-		$req = "select nomFamille FROM famille;";
+		$req = "select * FROM famille;";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 		}
 		public function setMedicament ($nom_commercial,$effet_therapeutique,$contre_indication,$presentation,$dosage,$pxHT,$pxEchantillon,$famille){
 		$req = "INSERT INTO medicament (nom_commercial,Effet_therapeutique,Contre_indication,Presentation,Dosage,pxHT,pxEchantillon,idFamille) 
-		VALUES ($nom_commercial,$effet_therapeutique,$contre_indication,$presentation,$dosage,$pxHT,$pxEchantillon,$famille)";
+		VALUES ('$nom_commercial','$effet_therapeutique','$contre_indication','$presentation','$dosage',$pxHT,$pxEchantillon,$famille)";
+		//echo "<script>alert(\"$req\")</script>"; 
 		$res = PdoGsb::$monPdo->query($req);
 	}
 

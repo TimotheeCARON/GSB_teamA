@@ -1,13 +1,13 @@
 <div id="contenu">
     <h2>Enregistrer un nouveau visiteur médical</h2>
     <form method="POST" action="index.php?uc=visiteurs&action=NewVisiteur">
-        <input type="text" name="nom" />Nom du médicament<br />
-        <input type="text" name="prenom" />Effet thérapeutique<br />
-        <input type="text" name="adresse" />Contre indication<br />
-        <input type="text" name="cp" />Presentation<br />
-        <input type="text" name="ville" />Dosage<br />
-        <input type="text" name="dateEmbauche" />pxHT<br />
-        <input type="text" name="idSecteur" />pxEchantillon<br />
+        <input type="text" name="nom" />Nom<br />
+        <input type="text" name="prenom" />Prenom<br />
+        <input type="text" name="adresse" />Adresse<br />
+        <input type="text" name="cp" />Code Postal<br />
+        <input type="text" name="ville" />Ville<br />
+        <input type="text" name="dateEmbauche" />Date d'embauche<br />
+        <input type="text" name="idSecteur" />Secteur<br />
 
         <input type="submit" value="Envoyer" />
     

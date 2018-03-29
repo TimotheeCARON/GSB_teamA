@@ -193,7 +193,7 @@ class PdoGsb{
 		return $lesLignes;
 		}
 
-		public function setVisiteur ($nom,$prenom,$adresse,$ville,$dateEmbauche,$id_secteur){
+		public function setVisiteur ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$id_secteur){
 			$req = "INSERT INTO visiteur_medical (nom,prenom,adresse,cp,ville,dateEmbauche,id_secteur) 
 			VALUES ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$id_secteur)";
 			$res = PdoGsb::$monPdo->query($req);

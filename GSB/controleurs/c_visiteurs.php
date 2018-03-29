@@ -23,7 +23,7 @@ switch($action){
 		$ville=$_POST['ville'];
 		$dateEmbauche=$_POST['dateEmbauche'];
 		$idSecteur=$_POST['idSecteur'];
-		setVisiteur ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$idSecteur);
+		$pdo->setVisiteur ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$idSecteur);
 		}
 	}
 }

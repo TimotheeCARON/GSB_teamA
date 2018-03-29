@@ -211,9 +211,9 @@ class PdoGsb{
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 		}
-		public function setPraticiens ($nom_commercial,$effet_therapeutique,$contre_indication,$presentation,$dosage,$pxHT,$pxEchantillon){
+		public function setPraticiens ($Code,$RaisonSociale,$Adresse,$Telephone,$Contact,$CoeffNot,$CoeffConf,$Specialite){
 		$req = "INSERT INTO praticiens (Code, Raison_sociale, Adresse, Telephone, Contact, Coef_notoriete, coef_confiance, idSpecialite ;) 
-		VALUES ($nom_commercial,$effet_therapeutique,$contre_indication,$presentation,$dosage,$pxHT,$pxEchantillon)";
+		VALUES ($Code,$RaisonSociale,$Adresse,$Telephone,$Contact,$CoeffNot,$CoeffConf,$Specialite)";
 		$res = PdoGsb::$monPdo->query($req);
 	}
 

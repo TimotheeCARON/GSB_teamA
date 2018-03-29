@@ -2,7 +2,7 @@
 include("vues/v_sommaire.php");
 $idVisiteur = $_SESSION['idVisiteur']; 
 
-
+$action = $_REQUEST['action'];
 switch($action){
 	/*case 'AFFICHEMedicaments':{
 		$lesMedicaments = $_REQUEST['AfficherlesMedocs'];

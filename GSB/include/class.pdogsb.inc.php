@@ -205,18 +205,22 @@ class PdoGsb{
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
-	}
+		}
 		public function getSpecialite(){
-		$req = "select nomSpecialite FROM specialite;";
+		$req = "select * FROM specialite;";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
-		}
-		public function setPraticiens ($Code,$RaisonSociale,$Adresse,$Telephone,$Contact,$CoeffNot,$CoeffConf,$Specialite){
-		$req = "INSERT INTO praticiens (Code, Raison_sociale, Adresse, Telephone, Contact, Coef_notoriete, coef_confiance, idSpecialite ;) 
-		VALUES ($Code,$RaisonSociale,$Adresse,$Telephone,$Contact,$CoeffNot,$CoeffConf,$Specialite)";
+		}								
+		public function setPraticiens ($Contact,$Telephone,$RaisonSociale,$Adresse,$CoeffNot,$CoeffConf,$Specialite){
+		$req = "INSERT INTO praticien (Contact, Telephone, Raison_sociale, Adresse, Coef_notoriete, coef_confiance, idSpecialite) 
+		VALUES ('$Contact','$Telephone','$RaisonSociale','$Adresse',$CoeffNot,$CoeffConf,$Specialite)";
 		$res = PdoGsb::$monPdo->query($req);
-	}
+		}
+		public function delPraticiens ($Code){
+			$req = "DELETE FROM praticien WHERE Code = $Code";
+			$res = PdoGsb::$monPdo->query($req);
+		}
 
 /**
  * Met à jour la table ligneFraisForfait

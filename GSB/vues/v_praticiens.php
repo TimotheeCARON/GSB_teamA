@@ -1,7 +1,6 @@
 <div id="contenu">
     <h2>Praticiens</h2>
     <form method="POST" action="index.php?uc=praticiens&action=NewPraticiens">
-        <input type="text" name="Code" />Code du praticiens<br />
         <input type="text" name="Contact" />Contact<br />
         <input type="text" name="Telephone" />Telephone<br />
         <input type="text" name="RaisonSociale" />Raison Sociale<br />
@@ -30,7 +29,7 @@
   	   <caption>Praticiens
            </caption>
              <tr>
-                <th class="Code">Code du praticiens</th>
+                <th class="Code">Code</th>
                 <th class="Contact">Contact</th>
                 <th class='Telephone'>Telephone</th>  
                 <th class='RaisonSociale'>Raison Sociale</th>
@@ -38,6 +37,7 @@
                 <th class='CoeffNot'>Coefficient de notoriété</th>
                 <th class='CoeffConf'>Coefficient de confiance</th>
                 <th class='Specialite'>Specialite</th>
+                <th class='action'>Action</th>
                 
              </tr>
               <?php      
@@ -62,6 +62,10 @@
                     <td><?php echo $CoeffNot ?></td>
                     <td><?php echo $CoeffConf ?></td>
                     <td><?php echo $Specialite ?></td>
+                    <td>
+                    <?php echo "<a href='index.php?uc=praticiens&action=DelPraticiens&Code=$Code' title='Supprimer'><img src='./image/Delete_icon.png' alt='Supprimer' /></a>"
+                    ?>
+                   </td>
                  </tr>
                  <?php
 			}

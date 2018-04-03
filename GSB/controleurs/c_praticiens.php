@@ -12,7 +12,6 @@ switch($action){
 	}*/
 	case 'NewPraticiens':{
 		if(!empty($_POST)){
-			$Code = $_POST['Code'];
 			$Contact = $_POST['Contact'];
 			$Telephone = $_POST['Telephone'];
 			$RaisonSociale = $_POST['RaisonSociale'];
@@ -20,13 +19,26 @@ switch($action){
 			$CoeffNot = $_POST['CoeffNot'];
 			$CoeffConf = $_POST['CoeffConf'];
 			$Specialite = $_POST['Specialite'];
-			$pdo->setPraticiens($Code,$Contact,$Telephone,$RaisonSociale,$Adresse,$CoeffNot,$CoeffConf,$Specialite);
+			$pdo->setPraticiens($Contact,$Telephone,$RaisonSociale,$Adresse,$CoeffNot,$CoeffConf,$Specialite);
+			echo "<script>alert('$Specialite')</script>"; 
+
 		}
+		break;
 	}
+
+	case 'DelPraticiens':{
+		if(!empty($_GET)){
+			$Code = $_GET['Code'];
+			$pdo->DelPraticiens($Code);
+			echo "<script>alert('$Code')</script>";
+		}
+		break;
+	}
+	
 }
 
-$lesSpecialites= $pdo->getSpecialite();
-$lesPraticiens= $pdo->getPraticiens();
+$lesSpecialites = $pdo->getSpecialite();
+$lesPraticiens = $pdo->getPraticiens();
 
 include("vues/v_praticiens.php");
 ?>

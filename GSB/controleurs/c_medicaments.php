@@ -9,6 +9,16 @@ switch($action){
 		
 	  	 	$pdo->AfficherMedocs($Numero,$Nom,$Famille,$Effet,$Presentation,$Dosage,$ContreIndication,$PrixHT,$PrixEchantillon);
 	}*/
+	case 'SupprMedoc':{
+		if (!empty($_GET)){
+			$id=$_GET['id'];
+			echo "<script>alert(\"l'idée est : $id\")</script>";
+			$pdo->supprMedicament($id);
+			
+		}
+		 break;
+		//mysql_query("DELETE from membres WHERE membres_id='$id'");
+	}
 	case 'NewMedoc':{
 		if(!empty($_POST)){
 			$nomMedoc=$_POST['nomMedoc'];
@@ -20,9 +30,11 @@ switch($action){
 			$pxEchantillon=$_POST['pxEchantillon'];
 			$famille=$_POST['famille'];
 			$pdo->setMedicament ($nomMedoc,$Effet_therapeutique,$Contre_indication,$Presentation,$Dosage,$pxHT,$pxEchantillon,$famille);
-			//echo "<script>alert(\"ca passe\")</script>"; 
+			echo "<script>alert(\"ca passe\")</script>"; 
 		}
+		break;
 	}
+	
 }
 
 $lesMedicaments= $pdo->getMedicaments();

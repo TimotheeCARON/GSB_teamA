@@ -22,6 +22,8 @@
     </form>
 </div>
 
+
+
 <div id="contenu">
       <h2>Gérer les médicaments</h2>
          
@@ -39,6 +41,7 @@
                 <th class='contre_indication'>Contre indiction</th>
                 <th class='prix_HT'>Prix HT</th>
                 <th class='prix_echantillon'>Prix échantillon</th>
+                <th class='supprimer'>Supprimer</th>
                 
              </tr>
               <?php      
@@ -64,9 +67,14 @@
                     <td><?php echo $contre_indication ?></td>
                     <td><?php echo $prix_HT ?></td>
                     <td><?php echo $prix_echantillon ?></td>
+                    <td><?php echo "<a href='index.php?uc=medicaments&action=SupprMedoc&id=$id' title='Supprimer'><img src='./images/Delete_icon.png' alt='Supprimer' /></a>"
+                    ?>
+                    </td>
                  </tr>
+                 
                  <?php
 			}
 		?>
     </table>
 </div>
+

@@ -8,12 +8,13 @@
         <input type="text" name="Adresse" />Adresse<br />
         <input type="text" name="CoeffNot" />Coefficient de notoriété<br />
         <input type="text" name="CoeffConf" />Coefficient de confiance<br />
-        <select>
+        <select name="Specialite">
             <?php
                 foreach ($lesSpecialites as $laSpecialite){
                     echo '<option value= '.$laSpecialite['idSpecialite'].' > '.$laSpecialite['nomSpecialite'].' </option>';
                 }
             ?>
+            
         </select> 
 
         <input type="submit" value="Envoyer" />

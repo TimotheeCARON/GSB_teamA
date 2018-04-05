@@ -226,6 +226,12 @@ class PdoGsb{
 			$req = "DELETE FROM praticien WHERE Code = $Code";
 			$res = PdoGsb::$monPdo->query($req);
 		}
+		public function getPraticiensWithCode ($Code){
+			$req = "select P.Code, P.Raison_sociale, P.Adresse, P.Telephone, P.Contact, P.Coef_notoriete, P.coef_confiance, S.nomSpecialite, S.idSpecialite FROM Praticien AS P INNER JOIN Specialite AS S on S.idSpecialite=P.idSpecialite WHERE P.Code = $Code;";
+			$res = PdoGsb::$monPdo->query($req);
+			$lesLignes = $res->fetch();
+			return $lesLignes;
+			}
 
 /**
  * Met à jour la table ligneFraisForfait

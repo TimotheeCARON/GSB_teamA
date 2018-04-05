@@ -232,6 +232,10 @@ class PdoGsb{
 			$lesLignes = $res->fetch();
 			return $lesLignes;
 			}
+		public function updtPraticiens($Code,$Contact,$Telephone,$RaisonSociale,$Adresse,$CoeffNot,$CoeffConf,$Specialite){
+			$req = "UPDATE praticien SET Raison_sociale = '$RaisonSociale', Adresse = '$Adresse', Telephone = '$Telephone', Contact = '$Contact', Coef_notoriete = $CoeffNot, Coef_confiance = $CoeffConf, idSpecialite = $Specialite WHERE Code = $Code ;";
+			$res = PdoGsb::$monPdo->query($req);
+		}
 
 /**
  * Met à jour la table ligneFraisForfait

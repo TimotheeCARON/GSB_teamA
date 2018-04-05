@@ -3,8 +3,8 @@
    <?php
     if ($_GET['action']=="UpdtPraticiens")
         {
-            $vars=$_GET['action'];
-            echo "<script>alert('$vars')</script>";
+            //$vars=$_GET['action'];
+            //echo "<script>alert('$vars')</script>";
             $Contact=$LePraticien['Contact'];
             $Telephone=$LePraticien['Telephone'];
             $RaisonSociale=$LePraticien['Raison_sociale'];

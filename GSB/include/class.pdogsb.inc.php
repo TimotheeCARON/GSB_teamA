@@ -199,8 +199,13 @@ class PdoGsb{
 		}
 
 		public function setVisiteur ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$id_secteur){
-			$req = "INSERT INTO visiteur_medical (nom,prenom,adresse,cp,ville,dateEmbauche,id_secteur) 
-			VALUES ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$id_secteur)";
+			$req = "INSERT INTO visiteur_medical (nom,prenom,adresse,cp,ville,dateEmbauche,idSecteur) 
+			VALUES ('$nom','$prenom','$adresse','$cp','$ville','$dateEmbauche',$id_secteur)";
+			$res = PdoGsb::$monPdo->query($req);
+		}
+		
+		public function delVisiteur ($id){
+			$req = "DELETE FROM visiteur_medical WHERE id = $id";
 			$res = PdoGsb::$monPdo->query($req);
 		}
 

@@ -30,7 +30,15 @@ switch($action){
 			$pxEchantillon=$_POST['pxEchantillon'];
 			$famille=$_POST['famille'];
 			$pdo->setMedicament ($nomMedoc,$Effet_therapeutique,$Contre_indication,$Presentation,$Dosage,$pxHT,$pxEchantillon,$famille);
-			echo "<script>alert(\"ca passe\")</script>"; 
+			//echo "<script>alert(\"ca passe\")</script>"; 
+		}
+		break;
+	}
+	case 'NewInterac':{
+		if(!empty($_POST)){
+			$idMedoc1=$_POST['interaction1'];
+			$idMedoc2=$_POST['interaction2'];
+			$pdo->setInteraction($idMedoc1,$idMedoc2);
 		}
 		break;
 	}

@@ -178,7 +178,14 @@ class PdoGsb{
 	}
 
 		public function supprMedicament($id){
+		$req = "DELETE from interragir WHERE Id_produit='$id' OR Id_produit_Medicament='$id'";
+		$res = PdoGsb::$monPdo->query($req);
 		$req = "DELETE from medicament WHERE Id_produit='$id'";
+		$res = PdoGsb::$monPdo->query($req);
+	}
+		public function setInteraction($idMedoc1,$idMedoc2){
+		$req = "INSERT INTO interragir (Id_produit,Id_produit_Medicament)
+		VALUES ('$idMedoc1','$idMedoc2')";
 		$res = PdoGsb::$monPdo->query($req);
 	}
 
@@ -226,12 +233,6 @@ class PdoGsb{
 			$req = "DELETE FROM praticien WHERE Code = $Code";
 			$res = PdoGsb::$monPdo->query($req);
 		}
-		public function getPraticiensWithCode ($Code){
-			$req = "select P.Code, P.Raison_sociale, P.Adresse, P.Telephone, P.Contact, P.Coef_notoriete, P.coef_confiance, S.nomSpecialite, S.idSpecialite FROM Praticien AS P INNER JOIN Specialite AS S on S.idSpecialite=P.idSpecialite WHERE P.Code = $Code;";
-			$res = PdoGsb::$monPdo->query($req);
-			$lesLignes = $res->fetch();
-			return $lesLignes;
-			}
 
 /**
  * Met à jour la table ligneFraisForfait

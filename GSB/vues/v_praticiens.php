@@ -1,8 +1,10 @@
 <div id="contenu">
     <h2>Praticiens</h2>
    <?php
-    if (isset($_GET['UpdtCode'])) 
+    if ($_GET['action']=="UpdtPraticiens")
         {
+            //$vars=$_GET['action'];
+            //echo "<script>alert('$vars')</script>";
             $Contact=$LePraticien['Contact'];
             $Telephone=$LePraticien['Telephone'];
             $RaisonSociale=$LePraticien['Raison_sociale'];
@@ -11,7 +13,6 @@
             $CoeffConf=$LePraticien['coef_confiance'];
             $Specialite=$LePraticien['nomSpecialite'];
             $IdSpecialite=$LePraticien['idSpecialite'];
-            
         }
         else {
             $Contact= "";
@@ -41,13 +42,7 @@
         <select name="Specialite">'
              ?><?php
                 foreach ($lesSpecialites as $laSpecialite){
-                    if (isset($_GET['UpdtCode'])){
-                        echo '<option value= '.$laSpecialite['idSpecialite'].' selected > '.$laSpecialite['nomSpecialite'].' </option>';
-                    }
-                    else{
-                        echo '<option value= '.$laSpecialite['idSpecialite'].' > '.$laSpecialite['nomSpecialite'].' </option>';
-                    }
-                    
+                    echo '<option value= '.$laSpecialite['idSpecialite'].' > '.$laSpecialite['nomSpecialite'].' </option>';
                 }
                 if (isset($_GET['UpdtCode'])){
                 echo'<option selected value="'.$IdSpecialite.'">'.$Specialite.'</option>';
@@ -56,7 +51,15 @@
             
         </select> 
 
-        <input type="submit" value="Envoyer" />
+        <?php if (isset($_GET['UpdtCode']))
+        {
+            echo'<input type="submit" value="Modifier" />';
+        }
+        else
+        {
+            echo'<input type="submit" value="Ajouter" />';
+        }
+        ?>
     
     </form>
 </div>
@@ -83,28 +86,28 @@
               <?php      
           foreach ( $lesPraticiens as $unPraticien ) 
 		  {
-			$DgvCode = $unPraticien['Code'];
-			$DgvContact = $unPraticien['Contact'];
-			$DgvTelephone = $unPraticien['Telephone'];
-            $DgvRaisonSociale = $unPraticien['Raison_sociale'];
-            $DgvAdresse = $unPraticien['Adresse'];
-            $DgvCoeffNot = $unPraticien['Coef_notoriete'];
-            $DgvCoeffConf = $unPraticien['coef_confiance'];
-            $DgvSpecialite = $unPraticien['nomSpecialite'];
+			$LeCode = $unPraticien['Code'];
+			$Contact = $unPraticien['Contact'];
+			$Telephone = $unPraticien['Telephone'];
+            $RaisonSociale = $unPraticien['Raison_sociale'];
+            $Adresse = $unPraticien['Adresse'];
+            $CoeffNot = $unPraticien['Coef_notoriete'];
+            $CoeffConf = $unPraticien['coef_confiance'];
+            $Specialite = $unPraticien['nomSpecialite'];
         
                 ?>
                 <tr>
-                    <td><?php echo $DgvCode ?></td>
-                    <td><?php echo $DgvContact ?></td>
-                    <td><?php echo $DgvTelephone ?></td>
-                    <td><?php echo $DgvRaisonSociale ?></td>
-                    <td><?php echo $DgvAdresse ?></td>
-                    <td><?php echo $DgvCoeffNot ?></td>
-                    <td><?php echo $DgvCoeffConf ?></td>
-                    <td><?php echo $DgvSpecialite ?></td>
+                    <td><?php echo $LeCode ?></td>
+                    <td><?php echo $Contact ?></td>
+                    <td><?php echo $Telephone ?></td>
+                    <td><?php echo $RaisonSociale ?></td>
+                    <td><?php echo $Adresse ?></td>
+                    <td><?php echo $CoeffNot ?></td>
+                    <td><?php echo $CoeffConf ?></td>
+                    <td><?php echo $Specialite ?></td>
                     <td>
-                    <?php echo "<a href='index.php?uc=praticiens&action=DelPraticiens&DelCode=$DgvCode' title='Delete'><img src='./images/Delete_icon.png' alt='Delete' /></a>
-                    <a href='index.php?uc=praticiens&action=UpdtPraticiens&UpdtCode=$DgvCode' title='Update'><img src='./images/Update_icon.png' alt='Update' /></a>"
+                    <?php echo "<a href='index.php?uc=praticiens&action=DelPraticiens&DelCode=$LeCode' title='Delete'><img src='./images/Delete_icon.png' alt='Delete' /></a>
+                    <a href='index.php?uc=praticiens&action=UpdtPraticiens&UpdtCode=$LeCode' title='Update'><img src='./images/Update_icon.png' alt='Update' /></a>"
                     ?>
                    </td>
                  </tr>

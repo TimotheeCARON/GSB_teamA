@@ -11,19 +11,24 @@ switch($action){
 	  	 	$pdo->AfficherMedocs($Numero,$Nom,$Famille,$Effet,$Presentation,$Dosage,$ContreIndication,$PrixHT,$PrixEchantillon);
 	}*/
 	case 'AddPraticiens':{
-		if(!empty($_POST)){
-			if(!empty($_GET)){
-				$Code = $_GET['UpdtCode'];
-				echo "<script>alert('$Code')</script>";
+		if(!empty($_POST))
+		{
+
+			$Contact = $_POST['Contact'];
+			$Telephone = $_POST['Telephone'];
+			$RaisonSociale = $_POST['RaisonSociale'];
+			$Adresse =$_POST['Adresse'];
+			$CoeffNot = $_POST['CoeffNot'];
+			$CoeffConf = $_POST['CoeffConf'];
+			$Specialite = $_POST['Specialite'];
+		
+			if(!empty($_GET['UpdtCode']))
+			{
+				$Code = $_GET['UpdtCode'];	
+				$pdo->UpdtPraticiens($Code,$Contact,$Telephone,$RaisonSociale,$Adresse,$CoeffNot,$CoeffConf,$Specialite);
 			}
-			else{
-				$Contact = $_POST['Contact'];
-				$Telephone = $_POST['Telephone'];
-				$RaisonSociale = $_POST['RaisonSociale'];
-				$Adresse =$_POST['Adresse'];
-				$CoeffNot = $_POST['CoeffNot'];
-				$CoeffConf = $_POST['CoeffConf'];
-				$Specialite = $_POST['Specialite'];
+			else
+			{
 				$pdo->setPraticiens($Contact,$Telephone,$RaisonSociale,$Adresse,$CoeffNot,$CoeffConf,$Specialite);
 			}
 			
@@ -56,7 +61,6 @@ switch($action){
 
 $lesSpecialites = $pdo->getSpecialite();
 $lesPraticiens = $pdo->getPraticiens();
-
 
 include("vues/v_praticiens.php");
 ?>

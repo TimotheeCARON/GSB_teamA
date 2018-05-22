@@ -31,6 +31,7 @@
                 <th class="ville">Ville</th>
                 <th class="dateEmbauche">Date d'embauche</th>
                 <th class="idSecteur">Secteur HT</th>
+                <th class='action'>Action</th>
                 
              </tr>
               <?php      
@@ -54,6 +55,9 @@
                     <td><?php echo $ville ?></td>
                     <td><?php echo $date_embauche ?></td>
                     <td><?php echo $id_secteur ?></td>
+                    <td><?php echo "<a href='index.php?uc=praticiens&action=DelPraticiens&DelCode=' title='Delete'><img src='./images/Delete_icon.png' alt='Delete' /></a>
+                    <a href='index.php?uc=praticiens&action=UpdtPraticiens&UpdtCode=' title='Update'><img src='./images/Update_icon.png' alt='Update' /></a>"
+                    ?></td>
                 </tr>
                  <?php
 			}

@@ -32,5 +32,7 @@ switch($action){
 
 $lesVisiteurs= $pdo->getVisiteur();
 $lesVisites= $pdo->getVisite();
+
 include("vues/v_visiteurs.php");
+
 ?>

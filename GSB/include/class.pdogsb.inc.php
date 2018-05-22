@@ -206,8 +206,13 @@ class PdoGsb{
 		}
 
 		public function setVisiteur ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$id_secteur){
-			$req = "INSERT INTO visiteur_medical (nom,prenom,adresse,cp,ville,dateEmbauche,id_secteur) 
-			VALUES ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$id_secteur)";
+			$req = "INSERT INTO visiteur_medical (nom,prenom,adresse,cp,ville,dateEmbauche,idSecteur) 
+			VALUES ('$nom','$prenom','$adresse','$cp','$ville','$dateEmbauche',$id_secteur)";
+			$res = PdoGsb::$monPdo->query($req);
+		}
+		
+		public function delVisiteur ($id){
+			$req = "DELETE FROM visiteur_medical WHERE id = $id";
 			$res = PdoGsb::$monPdo->query($req);
 		}
 
@@ -233,6 +238,19 @@ class PdoGsb{
 			$req = "DELETE FROM praticien WHERE Code = $Code";
 			$res = PdoGsb::$monPdo->query($req);
 		}
+<<<<<<< HEAD
+=======
+		public function getPraticiensWithCode ($Code){
+			$req = "select P.Code, P.Raison_sociale, P.Adresse, P.Telephone, P.Contact, P.Coef_notoriete, P.coef_confiance, S.nomSpecialite, S.idSpecialite FROM Praticien AS P INNER JOIN Specialite AS S on S.idSpecialite=P.idSpecialite WHERE P.Code = $Code;";
+			$res = PdoGsb::$monPdo->query($req);
+			$lesLignes = $res->fetch();
+			return $lesLignes;
+			}
+		public function updtPraticiens($Code,$Contact,$Telephone,$RaisonSociale,$Adresse,$CoeffNot,$CoeffConf,$Specialite){
+			$req = "UPDATE praticien SET Raison_sociale = '$RaisonSociale', Adresse = '$Adresse', Telephone = '$Telephone', Contact = '$Contact', Coef_notoriete = $CoeffNot, Coef_confiance = $CoeffConf, idSpecialite = $Specialite WHERE Code = $Code ;";
+			$res = PdoGsb::$monPdo->query($req);
+		}
+>>>>>>> 63d2da87dc9b369093ab7fae044bf234ca9d7162
 
 /**
  * Met à jour la table ligneFraisForfait

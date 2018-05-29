@@ -10,9 +10,9 @@
     <script type=”text/javascript” src=”./js/bootstrap.js”></script>
     <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
   </head>
-  <body>
-    <div id="page">
+  <body id="page">
+    <div >
       <div id="entete">
-        <img src="./images/logo4.jpg" id="logoGSB" alt="ISSOU LA CHANCLA" title="JPP" />
-        <h1>Suivi du remboursement des frais</h1>
+        <img src="./images/logo4.jpg" id="logoGSB" alt="LogoGSB" class="img-responsive center-block" title="JPP" />
+        <h1 class="text-center">Bienvenue sur l'outil de gestion GSB : </h1>
       </div>

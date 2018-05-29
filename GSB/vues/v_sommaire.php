@@ -1,12 +1,6 @@
 ﻿    <!-- Division pour le sommaire -->
     <div id="menuGauche">
-     <div id="infosUtil">
-    
-        <h2>
-    
-</h2>
-    
-      </div>  
+
         <ul id="menuList">
 			<li >
 				  Visiteur :<br>
@@ -39,4 +33,21 @@
          </ul>
         
     </div>
-    
+
+<div class="container">
+	<div class="row" style="padding-top:50px">
+		
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">
+
+            <div class="list-group list-group-horizontal">
+                <a href="#" class="list-group-item">Accueil</a>
+                <a href="#" class="list-group-item">Medicaments</a>
+                <a href="#" class="list-group-item">Praticiens</a>
+                <a href="#" class="list-group-item">Visiteur Médicaux</a>
+                <a href="#" class="list-group-item active" id="cc">Déconnexion</a>
+            </div>
+
+        </div>
+  
+	</div>
+</div>

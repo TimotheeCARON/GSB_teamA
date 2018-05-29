@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 06 Mars 2018 à 16:56
+-- Généré le :  Mar 29 Mai 2018 à 15:33
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -185,17 +185,19 @@ INSERT INTO `specialite` (`idSpecialite`, `nomSpecialite`) VALUES
 CREATE TABLE `utilisateur` (
   `id` int(11) NOT NULL,
   `login` varchar(25) NOT NULL,
-  `mdp` varchar(25) DEFAULT NULL
+  `mdp` varchar(25) DEFAULT NULL,
+  `nom` varchar(30) NOT NULL,
+  `prenom` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id`, `login`, `mdp`) VALUES
-(1, 'ttheret', 'troo'),
-(2, 'gminguez', 'toro'),
-(3, 'tcaron', 'roto');
+INSERT INTO `utilisateur` (`id`, `login`, `mdp`, `nom`, `prenom`) VALUES
+(1, 'ttheret', 'troo', 'theret', 'tom'),
+(2, 'gminguez', 'toro', 'minguez', 'gaspard'),
+(3, 'tcaron', 'roto', 'caron', 'tim');
 
 -- --------------------------------------------------------
 
@@ -257,7 +259,12 @@ INSERT INTO `visiteur_medical` (`id`, `nom`, `prenom`, `adresse`, `cp`, `ville`,
 (15, 'Debroise', 'Michel', '2 Bld Jourdain', '44000', 'Nantes', '2001-04-17', 4),
 (16, 'Eynde', 'Valerie', '3 Grand Place', '13015', 'Marseille', '1999-11-01', 2),
 (17, 'Finck', 'Jacques', '10 avenue du Prado', '13002', 'Marseille', '1999-11-01', 2),
-(18, 'Frémont', 'Fernande', '4 route de la mer', '13012', 'Allauh', '1998-10-01', 2);
+(18, 'Frémont', 'Fernande', '4 route de la mer', '13012', 'Allauh', '1998-10-01', 2),
+(19, 'bgfbfg', 'bgfs', 'sfbgfg', 'gfb', 'sbgf', 'sfbfgb', 2),
+(20, 'regarde', 'tabdd', 'putain', '68452', 'monzbi', '24/12/2012', 1),
+(21, 'regarde', 'tabdd', 'putain', '68452', 'monzbi', '24/12/2012', 1),
+(22, 'regarde', 'tabdd', 'putain', '68452', 'monzbi', '24/12/2012', 1),
+(23, 'regarde', 'tabdd', 'putain', '68452', 'monzbi', '24/12/2012', 1);
 
 --
 -- Index pour les tables exportées
@@ -362,7 +369,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `visiteur_medical`
 --
 ALTER TABLE `visiteur_medical`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- Contraintes pour les tables exportées
 --

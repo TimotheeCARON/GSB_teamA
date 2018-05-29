@@ -31,7 +31,7 @@ switch($action){
 		if(!empty($_GET)){
 			$id = $_GET['DelId'];
 			$pdo->DelVisiteur($id);
-			//echo "<script>alert('$Code')</script>";
+			echo "<script>alert('$id')</script>";
 		}
 		break;
 	}

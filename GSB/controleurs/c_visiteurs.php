@@ -26,7 +26,23 @@ switch($action){
 		$pdo->setVisiteur ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$idSecteur);
 		}
 	}
-}
+
+	case 'DelVisiteur':{
+		if(!empty($_GET)){
+			$id = $_GET['DelId'];
+			$pdo->DelVisiteur($id);
+			//echo "<script>alert('$Code')</script>";
+		}
+		break;
+	}
+
+	case 'UpdtVisiteur':{
+		if(!empty($_GET)){
+			$id = $_GET['UpdtId'];
+			$LeVisiteur = $pdo->getVisiteurWithId($id);
+		}
+		break;
+	}	
 
 
 

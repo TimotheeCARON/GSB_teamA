@@ -37,7 +37,7 @@
               <?php      
           foreach ( $lesVisiteurs as $unVisiteur ) 
 		  {
-			
+			$id = $unVisiteur['id']
 			$nom = $unVisiteur['nom'];
 			$prenom = $unVisiteur['prenom'];
             $adresse = $unVisiteur['adresse'];
@@ -55,8 +55,8 @@
                     <td><?php echo $ville ?></td>
                     <td><?php echo $date_embauche ?></td>
                     <td><?php echo $id_secteur ?></td>
-                    <td><?php echo "<a href='index.php?uc=praticiens&action=DelPraticiens&DelCode=' title='Delete'><img src='./images/Delete_icon.png' alt='Delete' /></a>
-                    <a href='index.php?uc=praticiens&action=UpdtPraticiens&UpdtCode=' title='Update'><img src='./images/Update_icon.png' alt='Update' /></a>"
+                    <td><?php echo "<a href='index.php?uc=visiteurs&action=DelVisiteur&DelId=$id' title='Delete'><img src='./images/Delete_icon.png' alt='Delete' /></a>
+                    <a href='index.php?uc=visiteurs&action=UpdtVisiteur&UpdtId=' title='Update'><img src='./images/Update_icon.png' alt='Update' /></a>"
                     ?></td>
                 </tr>
                  <?php

@@ -216,6 +216,18 @@ class PdoGsb{
 			$res = PdoGsb::$monPdo->query($req);
 		}
 
+		public function getVisiteurWithId ($id){
+			$req = "select * FROM visiteur_medical WHERE id= $id;";
+			$res = PdoGsb::$monPdo->query($req);
+			$lesLignes = $res->fetch();
+			return $lesLignes;
+			}
+
+		public function updtVisiteur($id,$nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$id_secteur){
+			$req = "UPDATE praticien SET nom = '$nom', prenom = '$prenom', adresse = '$adresse', cp = '$cp', ville = $dateEmbauche, idSecteur= '$id_secteur' WHERE id = $id ;";
+			$res = PdoGsb::$monPdo->query($req);
+		}
+
 	//Praticiens
 		public function getPraticiens (){
 		$req = "select P.Code, P.Raison_sociale, P.Adresse, P.Telephone, P.Contact, P.Coef_notoriete, P.coef_confiance, S.nomSpecialite FROM Praticien AS P INNER JOIN Specialite AS S on S.idSpecialite=P.idSpecialite;";

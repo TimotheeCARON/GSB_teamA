@@ -26,8 +26,8 @@ switch($action){
 	case 'DelVisiteur':{
 		if(!empty($_GET)){
 			$id = $_GET['DelId'];
-			$pdo->DelVisiteur($id);
-			echo "<script>alert('$id')</script>";
+			$pdo->delVisiteur($id);
+			//echo "<script>alert('$id')</script>";
 		}
 		break;
 	}

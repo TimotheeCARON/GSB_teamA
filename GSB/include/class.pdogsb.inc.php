@@ -192,7 +192,7 @@ class PdoGsb{
 	//Visiteurs
 		
 		public function getVisiteur (){
-		$req = "select nom, prenom, adresse, cp, ville, dateEmbauche, idSecteur from visiteur_medical;";
+		$req = "select id, nom, prenom, adresse, cp, ville, dateEmbauche, idSecteur from visiteur_medical;";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;

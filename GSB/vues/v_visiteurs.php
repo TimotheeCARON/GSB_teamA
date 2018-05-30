@@ -23,7 +23,6 @@
   	   <caption>Récapitulatif des visiteurs
            </caption>
              <tr>
-                
                 <th class="nom">Nom</th>
                 <th class="prenom">Prénom</th>  
                 <th class="adresse">Adresse</th>
@@ -47,7 +46,6 @@
             $id_secteur = $unVisiteur['idSecteur'];            
 		?>
                 <tr>
-                    
                     <td><?php echo $nom ?></td>
                     <td><?php echo $prenom ?></td>
                     <td><?php echo $adresse ?></td>

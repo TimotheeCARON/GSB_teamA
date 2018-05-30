@@ -13,5 +13,5 @@
   <body id="page">
     <div >
       <div id="entete">
-        <img src="./images/logo4.jpg" id="logoGSB" alt="LogoGSB" class="img-responsive center-block" title="logo" />
+        <img src="./images/logo4.png" id="logoGSB" alt="LogoGSB" class="img-responsive center-block" title="logo" />
       </div>

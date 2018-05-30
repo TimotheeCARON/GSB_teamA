@@ -1,11 +1,20 @@
+@font-face
+{
+  font-family: "Bienvenue";
+  src: url("../fonts/Beautiful.ttf");
+}
 #page
 {
-  background-color: #d4dddd;
+  background-color: #ececec;
+}
+#MsgBienvenue
+{
+  font-family: "Bienvenue";
 }
 .sing-in
 {
-  margin-left: 25%;
-  margin-right: 25%;
+  margin-left: 35%;
+  margin-right: 35%;
 }
 table.listeLegere {
 /*    width:80%;*/

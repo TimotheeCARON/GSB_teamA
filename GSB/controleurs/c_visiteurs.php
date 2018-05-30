@@ -10,10 +10,6 @@ switch($action){
 	  	 	$pdo->AfficherMedocs($Numero,$Nom,$Famille,$Effet,$Presentation,$Dosage,$ContreIndication,$PrixHT,$PrixEchantillon);
 	}*/
 
-
-
-
-
  	case 'NewVisiteur':{
 	if(!empty($_POST)){
 		$nom=$_POST['nom'];
@@ -44,8 +40,7 @@ switch($action){
 		break;
 	}	
 
-
-
+}
 $lesVisiteurs= $pdo->getVisiteur();
 $lesVisites= $pdo->getVisite();
 

@@ -1,3 +1,1 @@
-﻿<div id="accueil">
-GESTION DES FRAIS
-</div>
+﻿<h1 class="text-center">Bienvenue !</h1>

@@ -2,7 +2,7 @@
 		
         
 <div class="list-group list-group-horizontal">
-    <a href="#" class="list-group-item">Accueil</a>
+    <a href="index.php?uc=accueil&action=accueil" class="list-group-item">Accueil</a>
     <a href="index.php?uc=medicaments&action=Medicaments" title="medicaments" class="list-group-item">Medicaments</a>
     <a href="index.php?uc=praticiens&action=Praticiens" title="Praticiens "class="list-group-item">Praticiens</a>
     <a href="index.php?uc=visiteurs&action=Visiteurs" title="Visiteurs" class="list-group-item">Visiteur Médicaux</a>

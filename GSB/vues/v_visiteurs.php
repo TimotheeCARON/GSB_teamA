@@ -37,7 +37,7 @@
               <?php      
           foreach ( $lesVisiteurs as $unVisiteur ) 
 		  {
-			$id = $unVisiteur['id']
+			$id = $unVisiteur['id'];
 			$nom = $unVisiteur['nom'];
 			$prenom = $unVisiteur['prenom'];
             $adresse = $unVisiteur['adresse'];

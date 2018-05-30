@@ -1,4 +1,4 @@
-﻿<h1 class="text-center" id="MsgBienvenue">Bienvenue sur l'outil de gestion GSB : <?php echo $_SESSION['prenom']."  ".$_SESSION['nom']  ?> </h1>       
+﻿<h2 class="text-center" id="MsgBienvenue">Bienvenue sur l'outil de gestion GSB : <strong> <?php echo $_SESSION['prenom']."  ".$_SESSION['nom']  ?> </strong></h2>       
 		
         
 <div class="list-group list-group-horizontal">

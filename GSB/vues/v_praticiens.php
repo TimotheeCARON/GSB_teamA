@@ -121,9 +121,7 @@
         <h2>Tableau des praticiens</h2>
             
         
-        <table>
-        <caption>Praticiens
-            </caption>
+        <table class="table table-striped custab">
                 <tr>
                     <th class='Code'>Code</th>
                     <th class='Contact'>Contact</th>

@@ -11,7 +11,7 @@
 {
   font-family: "Bienvenue";
 }
-.sing-in
+.marge35
 {
   margin-left: 35%;
   margin-right: 35%;
@@ -51,15 +51,17 @@ table.listeLegere th.libelle{
 }
 
 #contenu h2 {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 14px;
-	font-weight: bold;
-	color: #1D2941;
-	text-decoration: none;
-	border : 1px solid #6988BE;
-	padding-left: 25px;
-	background-color: #E9F1FE;
-  height : 28px;
+  font-family: "Bienvenue";
+  font-size: 20px;
+  font-weight: bold;
+  color: #191a1d;
+  text-decoration: none;
+  border: 1px solid #c3c1c1;
+  padding-left: 25px;
+  background-color: #d6d6d6;
+  height: 28px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 #contenu img {

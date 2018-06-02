@@ -164,6 +164,14 @@ class PdoGsb{
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 	}
+
+		public function getLeMedicament ($id){
+		$req = "select M.id_produit,M.Nom_commercial,M.Effet_therapeutique,M.Contre_indication,M.Presentation,M.Dosage,M.pxHT,M.pxEchantillon,F.nomFamille FROM Medicament AS M INNER JOIN famille AS F on M.idFamille=F.idFamille WHERE M.id_produit='$id';";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetch();
+		return $lesLignes;
+	}
+
 		public function getFamillesMedicaments(){
 		$req = "select * FROM famille;";
 		$res = PdoGsb::$monPdo->query($req);
@@ -174,6 +182,11 @@ class PdoGsb{
 		$req = "INSERT INTO medicament (nom_commercial,Effet_therapeutique,Contre_indication,Presentation,Dosage,pxHT,pxEchantillon,idFamille) 
 		VALUES ('$nom_commercial','$effet_therapeutique','$contre_indication','$presentation','$dosage',$pxHT,$pxEchantillon,$famille)";
 		//echo "<script>alert(\"$req\")</script>"; 
+		$res = PdoGsb::$monPdo->query($req);
+	}
+
+		public function updateMedicament ($id,$nom_commercial,$effet_therapeutique,$contre_indication,$presentation,$dosage,$pxHT,$pxEchantillon,$famille){
+		$req = "UPDATE medicament SET Nom_commercial = '$nom_commercial', Effet_therapeutique = '$effet_therapeutique',Contre_indication = '$contre_indication', Presentation = '$presentation', Dosage = '$dosage', PxHT= '$pxHT', pxEchantillon = '$pxEchantillon', idFamille='$famille' WHERE Id_produit='$id' ";
 		$res = PdoGsb::$monPdo->query($req);
 	}
 

@@ -1,14 +1,48 @@
+<?php 
+if ($_GET['action']=="UpdtMedoc"){
+    $id = $LeMedicament['id_produit'];
+    $nom = $LeMedicament['Nom_commercial'];
+    $famille = $LeMedicament['nomFamille'];
+    $effet = $LeMedicament['Effet_therapeutique'];
+    $contre_indication = $LeMedicament['Contre_indication'];
+    $presentation = $LeMedicament['Presentation'];
+    $dosage = $LeMedicament['Dosage'];
+    $prix_HT = $LeMedicament['pxHT'];
+    $prix_echantillon = $LeMedicament['pxEchantillon'];
+}
+else{
+    $id = "";
+    $nom = "";
+    $famille = "";
+    $effet = "";
+    $contre_indication = "";
+    $presentation = "";
+    $dosage = "";
+    $prix_HT = "";
+    $prix_echantillon = "";
+}
+?>
+
 <div id="contenu">
-    <h2>Enregistrer un nouveau médicament</h2>
-    <form method="POST" action="index.php?uc=medicaments&action=NewMedoc">
-        <input type="text" name="nomMedoc" id="nomMedoc" />Nom du médicament<br />
-        <input type="text" name="Effet_therapeutique" id="Effet_therapeutique"/>Effet thérapeutique<br />
-        <input type="text" name="Contre_indication" id="Contre_indication"/>Contre indication<br />
-        <input type="text" name="Presentation" id="Presentation"/>Presentation<br />
-        <input type="text" name="Dosage" id="Dosage"/>Dosage<br />
-        <input type="text" name="pxHT" id="pxHT"/>pxHT<br />
-        <input type="text" name="pxEchantillon" id="pxEchantillon"/>pxEchantillon<br />
-        <select name="famille">
+<?php 
+if ($_GET['action']=="UpdtMedoc"){
+    echo '<h2>Modifier un médicament</h2>
+    <form method="POST" action="index.php?uc=medicaments&action=ModifMedoc">';
+}
+else{
+    echo '<h2>Enregistrer un nouveau médicament</h2>
+    <form method="POST" action="index.php?uc=medicaments&action=NewMedoc">';
+}
+echo '  <input type="hidden" name="id" id="id" value="'.$id.'">
+        <input type="text" name="nomMedoc" id="nomMedoc" value="'.$nom.'">Nom du médicament<br />
+        <input type="text" name="Effet_therapeutique" id="Effet_therapeutique" value="'.$effet.'">Effet thérapeutique<br />
+        <input type="text" name="Contre_indication" id="Contre_indication" value="'.$contre_indication.'">Contre indication<br />
+        <input type="text" name="Presentation" id="Presentation" value="'.$presentation.'">Presentation<br />
+        <input type="text" name="Dosage" id="Dosage" value="'.$dosage.'">Dosage<br />
+        <input type="text" name="pxHT" id="pxHT" value="'.$prix_HT.'">pxHT<br />
+        <input type="text" name="pxEchantillon" id="pxEchantillon" value="'.$prix_echantillon.'">pxEchantillon<br />
+        <select name="famille">';
+?>
             <?php
                 foreach ($lesFamillesMedicaments as $uneFamille){
                     echo '<option value= '.$uneFamille['idFamille'].' > '.$uneFamille['nomFamille'].' </option>';
@@ -16,9 +50,14 @@
             ?>
             
         </select> 
-
-        <input type="submit" value="Envoyer" />
-    
+        <?php
+        if (isset($_GET['UpdtId'])){
+            echo '<input type="submit" value="Modifier" />';
+        }
+        else{
+            echo '<input type="submit" value="Envoyer" />';
+        }
+        ?>
     </form>
 </div>
 
@@ -67,7 +106,8 @@
                     <td><?php echo $contre_indication ?></td>
                     <td><?php echo $prix_HT ?></td>
                     <td><?php echo $prix_echantillon ?></td>
-                    <td><?php echo "<a href='index.php?uc=medicaments&action=SupprMedoc&id=$id' title='Supprimer'><img src='./images/Delete_icon.png' alt='Supprimer' /></a>"
+                    <td><?php echo "<a href='index.php?uc=medicaments&action=SupprMedoc&id=$id' title='Supprimer'><img src='./images/Delete_icon.png' alt='Supprimer' /></a>
+                    <a href='index.php?uc=medicaments&action=UpdtMedoc&UpdtId=$id' title='Update'><img src='./images/Update_icon.png' alt='Update' /></a>";
                     ?>
                     </td>
                  </tr>

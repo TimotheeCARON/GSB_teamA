@@ -34,11 +34,38 @@ switch($action){
 		}
 		break;
 	}
+
 	case 'NewInterac':{
 		if(!empty($_POST)){
 			$idMedoc1=$_POST['interaction1'];
 			$idMedoc2=$_POST['interaction2'];
 			$pdo->setInteraction($idMedoc1,$idMedoc2);
+		}
+		break;
+	}
+
+	case 'UpdtMedoc':{
+		if(!empty($_GET)){
+			$Id = $_GET['UpdtId'];
+			//echo "<script>alert('$id')</script>";
+			$LeMedicament = $pdo->getLeMedicament($Id);
+			
+		}
+		break;
+	}
+
+	case 'ModifMedoc':{
+		if(!empty($_POST)){
+			$id=$_POST['id'];
+			$nomMedoc=$_POST['nomMedoc'];
+			$Effet_therapeutique=$_POST['Effet_therapeutique'];
+			$Contre_indication=$_POST['Contre_indication'];
+			$Presentation=$_POST['Presentation'];
+			$Dosage=$_POST['Dosage'];
+			$pxHT=$_POST['pxHT'];
+			$pxEchantillon=$_POST['pxEchantillon'];
+			$famille=$_POST['famille'];
+			$pdo->updateMedicament ($id,$nomMedoc,$Effet_therapeutique,$Contre_indication,$Presentation,$Dosage,$pxHT,$pxEchantillon,$famille);
 		}
 		break;
 	}

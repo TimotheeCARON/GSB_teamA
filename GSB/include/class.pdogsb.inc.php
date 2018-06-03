@@ -172,6 +172,18 @@ class PdoGsb{
 		return $lesLignes;
 	}
 
+		public function getInteractions (){
+		$req = "select id_produit,id_produit_Medicament FROM interragir;";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
+	}
+
+		public function SupprInteraction($id1,$id2){
+		$req = "DELETE from interragir WHERE Id_produit='$id1' AND Id_produit_Medicament='$id2'";
+		$res = PdoGsb::$monPdo->query($req);
+	}
+
 		public function getFamillesMedicaments(){
 		$req = "select * FROM famille;";
 		$res = PdoGsb::$monPdo->query($req);

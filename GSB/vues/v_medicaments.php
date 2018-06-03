@@ -160,34 +160,21 @@ echo '  <input type="hidden" name="id" id="id" value="'.$id.'">
 
     <table>
              <tr>
-                <th class="idInterac1">Le médicament</th>
+                <th class="idInterac1">Le médicament   </th>
                 <th class="idInterac2">Intéragie avec</th>
                 
              </tr>
               <?php      
-          foreach ( $lesMedicaments as $unMedicament ) 
+          foreach ($lesInteractions as $uneInteraction ) 
 		  {
-			$id = $unMedicament['id_produit'];
-			$nom = $unMedicament['Nom_commercial'];
-			$famille = $unMedicament['nomFamille'];
-            $effet = $unMedicament['Effet_therapeutique'];
-            $contre_indication = $unMedicament['Contre_indication'];
-            $presentation = $unMedicament['Presentation'];
-            $dosage = $unMedicament['Dosage'];
-            $prix_HT = $unMedicament['pxHT'];
-            $prix_echantillon = $unMedicament['pxEchantillon'];
+			$id1 = $uneInteraction['id_produit'];
+			$id2 = $uneInteraction['id_produit_Medicament'];
+			
 		?>
                 <tr>
-                    <td><?php echo $id ?></td>
-                    <td><?php echo $nom ?></td>
-                    <td><?php echo $famille ?></td>
-                    <td><?php echo $effet ?></td>
-                    <td><?php echo $dosage ?></td>
-                    <td><?php echo $presentation ?></td>
-                    <td><?php echo $contre_indication ?></td>
-                    <td><?php echo $prix_HT ?></td>
-                    <td><?php echo $prix_echantillon ?></td>
-                    <td><?php echo "<a href='index.php?uc=medicaments&action=SupprMedoc&id=$id' title='Supprimer'><img src='./images/Delete_icon.png' alt='Supprimer' /></a>"
+                    <td><?php echo $id1 ?></td>
+                    <td><?php echo $id2 ?></td>                   
+                    <td><?php echo "<a href='index.php?uc=medicaments&action=SupprInteraction&id1=$id1&id2=$id2' title='Supprimer'><img src='./images/Delete_icon.png' alt='Supprimer' /></a>"
                     ?>
                     </td>
                  </tr>

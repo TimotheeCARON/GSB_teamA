@@ -12,13 +12,23 @@ switch($action){
 	case 'SupprMedoc':{
 		if (!empty($_GET)){
 			$id=$_GET['id'];
-			echo "<script>alert(\"l'idée est : $id\")</script>";
+			//echo "<script>alert(\"l'idée est : $id\")</script>";
 			$pdo->supprMedicament($id);
 			
 		}
 		 break;
 		//mysql_query("DELETE from membres WHERE membres_id='$id'");
 	}
+
+	case 'SupprInteraction':{
+		if (!empty($_GET)){
+			$id1=$_GET['id1'];
+			$id2=$_GET['id2'];
+			$pdo->SupprInteraction($id1,$id2);
+		}
+		break;
+	}
+
 	case 'NewMedoc':{
 		if(!empty($_POST)){
 			$nomMedoc=$_POST['nomMedoc'];
@@ -74,5 +84,7 @@ switch($action){
 
 $lesMedicaments= $pdo->getMedicaments();
 $lesFamillesMedicaments = $pdo->getFamillesMedicaments();
+$lesInteractions = $pdo->getInteractions();
+
 include("vues/v_medicaments.php");
 ?>

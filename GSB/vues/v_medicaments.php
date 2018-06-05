@@ -43,55 +43,54 @@ else{
                         </div>
                     <form method="POST" action="index.php?uc=medicaments&action=NewMedoc">';
                 }
-                echo '  
-                        
-                        <input type="hidden" name="id" id="id" value="'.$id.'"> 
-                        <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control name="nomMedoc" id="nomMedoc" value="'.$nom.'" placeholder="Nom du médicament"><br />
-                                </div> 
-                            </div>
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control name="Effet_therapeutique" id="Effet_therapeutique" value="'.$effet.'" placeholder="Effet thérapeutique"><br />
+                echo '  <div class="panel-body">
+                            <input type="hidden" name="id" id="id" value="'.$id.'"> 
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control name="nomMedoc" id="nomMedoc" value="'.$nom.'" placeholder="Nom du médicament"><br />
+                                    </div> 
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control name="Effet_therapeutique" id="Effet_therapeutique" value="'.$effet.'" placeholder="Effet thérapeutique"><br />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control name="Contre_indication" id="Contre_indication" value="'.$contre_indication.'" placeholder="Contre indication"><br />
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control name="Contre_indication" id="Contre_indication" value="'.$contre_indication.'" placeholder="Contre indication"><br />
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control name="Presentation" id="Presentation" value="'.$presentation.'" placeholder="Presentation"><br />
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control name="Presentation" id="Presentation" value="'.$presentation.'" placeholder="Presentation"><br />
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control name="Dosage" id="Dosage" value="'.$dosage.'" placeholder="Dosage"><br />
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control name="pxHT" id="pxHT" value="'.$prix_HT.'" placeholder="pxHT"><br />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control name="Dosage" id="Dosage" value="'.$dosage.'" placeholder="Dosage"><br />
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control name="pxEchantillon" id="pxEchantillon" value="'.$prix_echantillon.'" placeholder="pxEchantillon"><br />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control name="pxHT" id="pxHT" value="'.$prix_HT.'" placeholder="pxHT"><br />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control name="pxEchantillon" id="pxEchantillon" value="'.$prix_echantillon.'" placeholder="pxEchantillon"><br />
-                                </div>
-                            </div>
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <select class="form-control" name="famille">
-                                ';
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <select class="form-control" name="famille">
+                        </div>';
                                 
                         ?>
                         <?php
@@ -105,7 +104,7 @@ else{
                         </div>
                         <?php
                         if (isset($_GET['UpdtId'])){
-                            echo '<input type="submit" value="Modifier" class="btn btn-info btn-block"/> />';
+                            echo '<input type="submit" value="Modifier" class="btn btn-info btn-block"/>';
                         }
                         else{
                             echo '<input type="submit" value="Envoyer" class="btn btn-info btn-block"/>';

@@ -32,12 +32,12 @@ switch($action){
 		break;
 	}
 
-	case 'UpdtVisiteur':{
+	case 'updtVisiteur':{
 		if(!empty($_GET)){
 			$id = $_GET['UpdtId'];
-			//echo "<script>alert('$Code')</script>";
+			//echo "<script>alert('$id')</script>";
 			$LeVisiteur = $pdo->getVisiteurWithId($id);
-			//$var=$LePraticien['Contact'];
+			//$var=$LeVisiteur['Contact'];
 			//echo "<script>alert('$var')</script>";
 		}
 		break;

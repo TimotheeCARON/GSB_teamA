@@ -242,7 +242,7 @@ class PdoGsb{
 		}
 
 		public function getVisiteurWithId ($id){
-			$req = "select * FROM visiteur_medical WHERE id= $id;";
+			$req = "select id, nom, prenom, adresse, cp, ville, dateEmbauche, idSecteur FROM visiteur_medical WHERE id= $id;";
 			$res = PdoGsb::$monPdo->query($req);
 			$lesLignes = $res->fetch();
 			return $lesLignes;

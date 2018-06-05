@@ -5,13 +5,13 @@
 
         if ($_GET['action']=="updtVisiteur")
         {
-            $nom=$_POST['nom'];
-            $prenom=$_POST['prenom'];
-            $adresse=$_POST['adresse'];
-            $cp=$_POST['cp'];
-            $ville=$_POST['ville'];
-            $dateEmbauche=$_POST['dateEmbauche'];
-            $idSecteur=$_POST['idSecteur'];
+            $nom=$LeVisiteur['nom'];
+            $prenom=$LeVisiteur['prenom'];
+            $adresse=$LeVisiteur['adresse'];
+            $cp=$LeVisiteur['cp'];
+            $ville=$LeVisiteur['ville'];
+            $dateEmbauche=$LeVisiteur['dateEmbauche'];
+            $idSecteur=$LeVisiteur['idSecteur'];
         }
         else   
         {
@@ -23,7 +23,6 @@
             $dateEmbauche="";
             $idSecteur="";
         }
-    
             echo'<div class="container">
                 <div class="row centered-form">        
                     <div class="panel panel-default">
@@ -40,19 +39,19 @@
                                 echo'<form method="POST" action="index.php?uc=visiteurs&action=NewVisiteur">';
                             } 
                                  echo'<div class="row">
-                                     <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
                                             <input type="text" name="Nom" id="nom" class="form-control input-sm" placeholder="Nom" value="'.$nom.'" required>
                                          </div>
-                                     </div>
+                                    </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
                                             <input type="text" name="Prenom" id="prenom" class="form-control input-sm" placeholder="Prenom" value="'.$prenom.'" required>
-                                         </div>
-                                     </div>
+                                        </div>
+                                    </div>
                                  </div>
                                  <div class="row">
-                                     <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
                                             <input type="text" name="Adresse" id="adresse" class="form-control input-sm" placeholder="Adresse" value="'.$adresse.'" required>
                                         </div>
@@ -140,7 +139,7 @@
                     <td><?php echo $date_embauche ?></td>
                     <td><?php echo $id_secteur ?></td>
                     <td><?php echo "<a href='index.php?uc=visiteurs&action=DelVisiteur&DelId=$LeId' title='Delete'><img src='./images/Delete_icon.png' alt='Delete' /></a>
-                    <a href='index.php?uc=visiteurs&action=UpdtVisiteur&UpdtId=$LeId' title='Update'><img src='./images/Update_icon.png' alt='Update' /></a>"
+                    <a href='index.php?uc=visiteurs&action=updtVisiteur&UpdtId=$LeId' title='Update'><img src='./images/Update_icon.png' alt='Update' /></a>"
                     ?></td>
                 </tr>
                  <?php

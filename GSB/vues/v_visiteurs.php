@@ -1,25 +1,111 @@
-<div id="contenu">
-    <h2>Enregistrer un nouveau visiteur médical</h2>
-    <form method="POST" action="index.php?uc=visiteurs&action=NewVisiteur">
-        <input type="text" name="nom" />Nom<br />
-        <input type="text" name="prenom" />Prenom<br />
-        <input type="text" name="adresse" />Adresse<br />
-        <input type="text" name="cp" />Code Postal<br />
-        <input type="text" name="ville" />Ville<br />
-        <input type="text" name="dateEmbauche" />Date d'embauche<br />
-        <input type="text" name="idSecteur" />Secteur<br />
+<div class="text-center">
+    <div id="contenu">
+        <h2>Enregistrer un nouveau visiteur médical</h2>
+    <?php
 
-        <input type="submit" value="Envoyer" />
+        if ($_GET['action']=="updtVisiteur")
+        {
+            $nom=$_POST['nom'];
+            $prenom=$_POST['prenom'];
+            $adresse=$_POST['adresse'];
+            $cp=$_POST['cp'];
+            $ville=$_POST['ville'];
+            $dateEmbauche=$_POST['dateEmbauche'];
+            $idSecteur=$_POST['idSecteur'];
+        }
+        else   
+        {
+            $nom="";
+            $prenom="";
+            $adresse="";
+            $cp="";
+            $ville="";
+            $dateEmbauche="";
+            $idSecteur="";
+        }
     
-    </form>
-
+            echo'<div class="container">
+                <div class="row centered-form">        
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Enregistrer un visiteur médical</h3>
+                        </div>
+                            <div class="panel-body">';
+                            
+                             if (isset($_GET['UpdtId'])){
+                                $id=$_GET['UpdtId'];
+                                echo'<form method="POST" action="index.php?uc=visiteurs&action=NewVisiteur&UpdtId='.$id.'">';
+                            }
+                             else{
+                                echo'<form method="POST" action="index.php?uc=visiteurs&action=NewVisiteur">';
+                            } 
+                                 echo'<div class="row">
+                                     <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" name="Nom" id="nom" class="form-control input-sm" placeholder="Nom" value="'.$nom.'" required>
+                                         </div>
+                                     </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" name="Prenom" id="prenom" class="form-control input-sm" placeholder="Prenom" value="'.$prenom.'" required>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="row">
+                                     <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" name="Adresse" id="adresse" class="form-control input-sm" placeholder="Adresse" value="'.$adresse.'" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" name="cp" id="cp" class="form-control input-sm" placeholder="Code Postal" value="'.$cp.'" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" name="ville" id="ville" class="form-control input-sm" placeholder="Ville" value="'.$ville.'" required>
+                                         </div>
+                                     </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" name="dateEmbauche" id="dateEmbauche" class="form-control input-sm" placeholder="Date d embauche" value="'.$dateEmbauche.'" required>
+                                         </div>
+                                     </div>
+                               
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" name="idSecteur" id="idSecteur" class="form-control input-sm" placeholder="Numéro de secteur" value="'.$idSecteur.'" required>
+                                         </div>
+                                     </div>
+                              </div>'                            
+                             ?>                           
+                            </div>
+                        </div>
+                                
+                                <?php if (isset($_GET['UpdtId']))
+                                {
+                                    echo'<input type="submit" value="Modifier" class="btn btn-info btn-block"/>';
+                                }
+                                else
+                                {
+                                    echo'<input type="submit" value="Ajouter" class="btn btn-info btn-block"/>';
+                                }
+                    ?>
+                    </form> 
+                    </div>
+                </div>
+            </div>
+        
+        </div>
 </div>
-
 <div id="contenu">
-      <h2>Gérer les visiteurs médicaux</h2>
-         
+    
+      <h2>Gérer les visiteurs médicaux</h2>        
       
-  	<table>
+  	<table class="table table-striped custab">
   	   <caption>Récapitulatif des visiteurs
            </caption>
              <tr>
@@ -28,9 +114,9 @@
                 <th class="adresse">Adresse</th>
                 <th class="cp">Code Postal</th>
                 <th class="ville">Ville</th>
-                <th class="dateEmbauche">Date d'embauche</th>
+                <th class="dateEmbauche">Date d embauche</th>
                 <th class="idSecteur">Secteur HT</th>
-                <th class='action'>Action</th>
+                <th class='action'>Action</th>'
                 
              </tr>
               <?php      
@@ -59,6 +145,6 @@
                 </tr>
                  <?php
 			}
-		?>
+        ?>
     </table>
 </div>

@@ -34,16 +34,21 @@
             <div class="row centered-form">
            
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                            <h3 class="panel-title">Enregistrer un praticien</h3>
-                             </div>
-                             <div class="panel-body">';
+                    <div class="panel-heading">';
+                            
                             
                              if (isset($_GET['UpdtCode'])){
                                 $code=$_GET['UpdtCode'];
+                                echo'<h3 class="panel-title">Modification du praticien <strong>'.$Contact.'</strong></h3>
+                                </div>
+                                <div class="panel-body">';
+                                
                                 echo'<form method="POST" action="index.php?uc=praticiens&action=AddPraticiens&UpdtCode='.$code.'">';
                             }
                             else{
+                                echo'<h3 class="panel-title">Enregistrer un praticien</h3>
+                                </div>
+                                <div class="panel-body">';
                                 echo'<form method="POST" action="index.php?uc=praticiens&action=AddPraticiens">';
                             } 
                                 echo'<div class="row">

@@ -61,8 +61,8 @@
                                             <input type="text" name="cp" id="cp" class="form-control input-sm" placeholder="Code Postal" value="'.$cp.'" required>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
+                                 </div>
+                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
                                             <input type="text" name="ville" id="ville" class="form-control input-sm" placeholder="Ville" value="'.$ville.'" required>
@@ -73,12 +73,18 @@
                                             <input type="text" name="dateEmbauche" id="dateEmbauche" class="form-control input-sm" placeholder="Date d embauche" value="'.$dateEmbauche.'" required>
                                          </div>
                                      </div>
-                               
-                                    <div class="col-xs-6 col-sm-6 col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" name="idSecteur" id="idSecteur" class="form-control input-sm" placeholder="Numéro de secteur" value="'.$idSecteur.'" required>
-                                         </div>'                            
-                             ?>                           
+                                        <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                    <select class="form-control" name="Specialite">';
+                                    
+                                        foreach ($lesSecteurs as $leSecteur){
+                                            echo '<option value= '.$leSecteur['idSecteur'].' > '.$leSecteur['nomSecteur'].' </option>';
+                                        }
+                                        if (isset($_GET['UpdtCode'])){
+                                        echo'<option selected value="'.$idSecteur.'">'.$nom_secteur.'</option>';
+                                        }
+                                         ?>                           
                             </div>
                         </div>
                                 
@@ -109,7 +115,7 @@
                 <th class="cp">Code Postal</th>
                 <th class="ville">Ville</th>
                 <th class="dateEmbauche">Date d embauche</th>
-                <th class="idSecteur">Secteur HT</th>
+                <th class="nomSecteur">Secteur</th>
                 <th class='action'>Action</th>
                 
         </tr>
@@ -123,7 +129,7 @@
             $cp = $unVisiteur['cp'];
             $ville = $unVisiteur['ville'];
             $date_embauche = $unVisiteur['dateEmbauche'];
-            $id_secteur = $unVisiteur['idSecteur'];            
+            $nom_secteur = $unVisiteur['nomSecteur'];            
 		?>
                 <tr>
                     <td><?php echo $nom ?></td>
@@ -132,7 +138,7 @@
                     <td><?php echo $cp ?></td>
                     <td><?php echo $ville ?></td>
                     <td><?php echo $date_embauche ?></td>
-                    <td><?php echo $id_secteur ?></td>
+                    <td><?php echo $nom_secteur ?></td>
                     <td><?php echo "<a href='index.php?uc=visiteurs&action=DelVisiteur&DelId=$LeId' title='Delete'><img src='./images/Delete_icon.png' alt='Delete' /></a>
                     <a href='index.php?uc=visiteurs&action=updtVisiteur&UpdtId=$LeId' title='Update'><img src='./images/Update_icon.png' alt='Update' /></a>"
                     ?></td>

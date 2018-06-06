@@ -131,18 +131,25 @@ class PdoGsb{
 	//Visiteurs
 		
 		public function getVisiteur (){
-		$req = "select id, nom, prenom, adresse, cp, ville, dateEmbauche, idSecteur from visiteur_medical;";
+		$req = "select v.id, V.nom, v.prenom, v.adresse, v.cp, v.ville, v.dateEmbauche, v.idSecteur, l.nomSecteur FROM visiteur_medical AS v INNER JOIN localisation AS l on v.idSecteur=l.idSecteur ";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 		}
 
 		public function getVisite(){
-		$req = "select V.id, V.nom, V.prenom, V.adresse, V.cp, V.ville,V.dateEmbauche, Vi.date_visite FROM Visiteur_medical AS V INNER JOIN visiter AS Vi on V.id=Vi.id ;";
+		$req = "select v.id, V.nom, v.prenom, v.adresse, v.cp, v.ville, v.dateEmbauche, vi.date_visite FROM visiteur_medical AS v INNER JOIN visiter AS vi on v.id=vi.id ;";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 		}
+
+		public function getSecteur(){
+			$req = "select * FROM localisation;";
+			$res = PdoGsb::$monPdo->query($req);
+			$lesLignes = $res->fetchAll();
+			return $lesLignes;
+			}
 
 		public function setVisiteur ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$id_secteur){
 			$req = "INSERT INTO visiteur_medical (nom,prenom,adresse,cp,ville,dateEmbauche,idSecteur) 
@@ -156,7 +163,7 @@ class PdoGsb{
 		}
 
 		public function getVisiteurWithId ($id){
-			$req = "select id, nom, prenom, adresse, cp, ville, dateEmbauche, idSecteur FROM visiteur_medical WHERE id= $id;";
+			$req = "select v.id, V.nom, v.prenom, v.adresse, v.cp, v.ville, v.dateEmbauche, v.idSecteur, l.nomSecteur FROM visiteur_medical AS v INNER JOIN localisation AS l on v.idSecteur=l.idSecteur WHERE id= $id";
 			$res = PdoGsb::$monPdo->query($req);
 			$lesLignes = $res->fetch();
 			return $lesLignes;

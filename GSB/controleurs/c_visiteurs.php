@@ -18,8 +18,8 @@ switch($action){
 		$cp=$_POST['cp'];
 		$ville=$_POST['ville'];
 		$dateEmbauche=$_POST['dateEmbauche'];
-		$idSecteur=$_POST['idSecteur'];
-		$pdo->setVisiteur ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$idSecteur);
+		$nomSecteur=$_POST['nomSecteur'];
+		$pdo->setVisiteur ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$nomSecteur);
 		}
 	}
 
@@ -45,7 +45,7 @@ switch($action){
 
 }
 $lesVisiteurs= $pdo->getVisiteur();
-$lesVisites= $pdo->getVisite();
+$lesSecteurs= $pdo->getSecteur();
 
 include("vues/v_visiteurs.php");
 

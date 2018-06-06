@@ -13,9 +13,9 @@ switch($action){
 		$mdp = $_REQUEST['mdp'];
 		$visiteur = $pdo->getInfosUtilisateur($login,$mdp);
 		if(!is_array( $visiteur)){
-			ajouterErreur("Login ou mot de passe incorrect");
-			include("vues/v_erreurs.php");
+			
 			include("vues/v_connexion.php");
+			echo'Login ou mot de passe incorrect';
 		}
 		else{
 			$id = $visiteur['id'];

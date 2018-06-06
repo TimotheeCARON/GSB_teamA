@@ -24,8 +24,8 @@ else{
 ?>
 <div class="text-center">
     <div id="contenu">
+    <h2> Medicaments </h2>
         <div id="contenu" class="container">
-            <h2> Medicaments </h2>
             <div class="row centered-form">
                 
                 <div class="panel panel-default">

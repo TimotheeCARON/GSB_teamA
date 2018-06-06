@@ -1,8 +1,11 @@
+<!--  -->
 <div class="text-center">
     <div id="contenu">
         <h2>Praticiens</h2>
     <?php
-        if ($_GET['action']=="UpdtPraticiens")
+    // Récupère l'action du bouton update (bleu), si modifier le praticiens recupérer le praticiens avec le Code en paramètre
+    // sinon initialise les variables du praticiens à vide en vue d'un nouvel ajout.
+        if ($_GET['action']=="GetLePraticien")
             {
                 //$vars=$_GET['action'];
                 //echo "<script>alert('$vars')</script>";
@@ -28,7 +31,7 @@
         
             
 
-           
+           // Formulaire du praticiens vide pour un nouveau ou remplie avec les donné du praticiens à modifier.
             
             echo'<div class="container">
             <div class="row centered-form">
@@ -43,7 +46,7 @@
                                 </div>
                                 <div class="panel-body">';
                                 
-                                echo'<form method="POST" action="index.php?uc=praticiens&action=AddPraticiens&UpdtCode='.$code.'">';
+                                echo'<form method="POST" action="index.php?uc=praticiens&action=UpdtPraticiens&UpdtCode='.$code.'">';
                             }
                             else{
                                 echo'<h3 class="panel-title">Enregistrer un praticien</h3>
@@ -98,7 +101,7 @@
                                     if (isset($_GET['UpdtCode'])){
                                     echo'<option selected value="'.$IdSpecialite.'">'.$Specialite.'</option>';
                                     }
-                                ?>
+                                ?> 
                                 
                             </select> 
                             
@@ -124,7 +127,7 @@
 
     <div id="contenu">
         <h2>Tableau des praticiens</h2>
-            
+            <!-- Tableau des praticiens -->
         
         <table class="table table-striped custab">
                 <tr>
@@ -140,6 +143,7 @@
                     
                 </tr>
                 <?php      
+                // Parcourt des praticiens dans la base de données, pour chaques praticiens recupérer chaques éléments
             foreach ( $lesPraticiens as $unPraticien ) 
             {
                 $LeCode = $unPraticien['Code'];
@@ -163,7 +167,7 @@
                         <td><?php echo $Specialite ?></td>
                         <td>
                         <?php echo "<a href='index.php?uc=praticiens&action=DelPraticiens&DelCode=$LeCode' title='Delete'><img src='./images/Delete_icon.png' alt='Delete' /></a>
-                        <a href='index.php?uc=praticiens&action=UpdtPraticiens&UpdtCode=$LeCode' title='Update'><img src='./images/Update_icon.png' alt='Update' /></a>"
+                        <a href='index.php?uc=praticiens&action=GetLePraticien&UpdtCode=$LeCode' title='Update'><img src='./images/Update_icon.png' alt='Update' /></a>"
                         ?>
                     </td>
                     </tr>

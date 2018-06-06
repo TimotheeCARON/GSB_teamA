@@ -5,11 +5,7 @@ $idVisiteur = $_SESSION['idVisiteur'];
 $action = $_REQUEST['action'];
 
 switch($action){
-	/*case 'AFFICHEMedicaments':{
-		$lesMedicaments = $_REQUEST['AfficherlesMedocs'];
-		
-	  	 	$pdo->AfficherMedocs($Numero,$Nom,$Famille,$Effet,$Presentation,$Dosage,$ContreIndication,$PrixHT,$PrixEchantillon);
-	}*/
+
 	case 'AddPraticiens':{
 		if(!empty($_POST))
 		{
@@ -22,16 +18,25 @@ switch($action){
 			$CoeffConf = $_POST['CoeffConf'];
 			$Specialite = $_POST['Specialite'];
 		
-			if(!empty($_GET['UpdtCode']))
-			{
-				$Code = $_GET['UpdtCode'];	
-				$pdo->UpdtPraticiens($Code,$Contact,$Telephone,$RaisonSociale,$Adresse,$CoeffNot,$CoeffConf,$Specialite);
-			}
-			else
-			{
-				$pdo->setPraticiens($Contact,$Telephone,$RaisonSociale,$Adresse,$CoeffNot,$CoeffConf,$Specialite);
-			}
-			
+			$pdo->setPraticiens($Contact,$Telephone,$RaisonSociale,$Adresse,$CoeffNot,$CoeffConf,$Specialite);	
+		}
+		break;
+	}
+
+	case 'UpdtPraticiens':{
+		if(!empty($_POST) && !empty($_GET['UpdtCode']))
+		{
+			$Code = $_GET['UpdtCode'];
+
+			$Contact = $_POST['Contact'];
+			$Telephone = $_POST['Telephone'];
+			$RaisonSociale = $_POST['RaisonSociale'];
+			$Adresse =$_POST['Adresse'];
+			$CoeffNot = $_POST['CoeffNot'];
+			$CoeffConf = $_POST['CoeffConf'];
+			$Specialite = $_POST['Specialite'];
+		
+			$pdo->UpdtPraticiens($Code,$Contact,$Telephone,$RaisonSociale,$Adresse,$CoeffNot,$CoeffConf,$Specialite);	
 		}
 		break;
 	}
@@ -45,7 +50,7 @@ switch($action){
 		break;
 	}
 
-	case 'UpdtPraticiens':{
+	case 'GetLePraticien':{
 		if(!empty($_GET)){
 			$Code = $_GET['UpdtCode'];
 			//echo "<script>alert('$Code')</script>";

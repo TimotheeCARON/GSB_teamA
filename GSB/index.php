@@ -24,7 +24,8 @@ switch($uc){
         include("controleurs/c_medicaments.php");break;
     }
     case 'accueil' :{
-        include("controleurs/c_accueil.php");break;
+        include("vues/v_sommaire.php");
+        include("vues/v_accueil.php");break;
     }
 }
 include("vues/v_pied.php") ;

@@ -107,19 +107,20 @@
                             
                             </div>
                         </div>
+                    </div>
                                 
                                 <?php if (isset($_GET['UpdtCode']))
                                 {
-                                    echo'<input type="submit" value="Modifier" class="btn btn-info btn-block"/>';
+                                    echo'<input type="submit" value="Modifier" class="btn btn-info"/>';
                                 }
                                 else
                                 {
-                                    echo'<input type="submit" value="Ajouter" class="btn btn-info btn-block"/>';
+                                    echo'<input type="submit" value="Ajouter" class="btn btn-info"/>';
                                 }
                                 ?>
                             </form>
                             
-                        </div>
+                        
                     </div>
                 </div>
         

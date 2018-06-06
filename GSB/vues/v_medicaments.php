@@ -104,10 +104,10 @@ else{
                         </div>
                         <?php
                         if (isset($_GET['UpdtId'])){
-                            echo '<input type="submit" value="Modifier" class="btn btn-info btn-block"/>';
+                            echo '<input type="submit" value="Modifier" class="btn btn-info"/>';
                         }
                         else{
-                            echo '<input type="submit" value="Envoyer" class="btn btn-info btn-block"/>';
+                            echo '<input type="submit" value="Envoyer" class="btn btn-info"/>';
                         }
                         ?>
                     </form>

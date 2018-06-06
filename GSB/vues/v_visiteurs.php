@@ -78,23 +78,25 @@
                                         <div class="form-group">
                                             <input type="text" name="idSecteur" id="idSecteur" class="form-control input-sm" placeholder="Numéro de secteur" value="'.$idSecteur.'" required>
                                          </div>
-                                     </div>
-                              </div>'                            
+                                     
+                              '                            
                              ?>                           
                             </div>
                         </div>
                                 
                                 <?php if (isset($_GET['UpdtId']))
                                 {
-                                    echo'<input type="submit" value="Modifier" class="btn btn-info btn-block"/>';
+                                    echo'<input type="submit" value="Modifier" class="btn btn-info"/>';
                                 }
                                 else
                                 {
-                                    echo'<input type="submit" value="Ajouter" class="btn btn-info btn-block"/>';
+                                    echo'<input type="submit" value="Ajouter" class="btn btn-info"/>';
                                 }
                     ?>
                     </form> 
-                    </div>
+                        </div>
+                      </div>
+                   </div>
                 </div>
             </div>
         

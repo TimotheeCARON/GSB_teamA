@@ -96,7 +96,7 @@
                                 <select class="form-control" name="Specialite">';
                                 
                                     foreach ($lesSpecialites as $laSpecialite){
-                                        echo '<option value= '.$laSpecialite['idSpecialite'].' > '.$laSpecialite['nomSpecialite'].' </option>';
+                                        echo '<option value='.$laSpecialite['idSpecialite'].' > '.$laSpecialite['nomSpecialite'].' </option>';
                                     }
                                     if (isset($_GET['UpdtCode'])){
                                     echo'<option selected value="'.$IdSpecialite.'">'.$Specialite.'</option>';

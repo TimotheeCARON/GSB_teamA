@@ -15,8 +15,24 @@ switch($action){
 			$cp=$_POST['cp'];
 			$ville=$_POST['ville'];
 			$dateEmbauche=$_POST['dateEmbauche'];
-			$idSecteur=$_POST['idSecteur'];
-			$pdo->setVisiteur ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$idSecteur);
+			$idSecteur=$_POST['Secteur'];
+			$pdo->setVisiteur($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$idSecteur);
+		}
+	break;
+	}
+
+	case 'updtVisiteur':{
+		if(!empty($_POST) && !empty($_GET['updtId']))
+		{
+			$id=$_GET['updtId'];
+			$nom=$_POST['nom'];
+			$prenom=$_POST['prenom'];
+			$adresse=$_POST['adresse'];
+			$cp=$_POST['cp'];
+			$ville=$_POST['ville'];
+			$dateEmbauche=$_POST['dateEmbauche'];
+			$idSecteur=$_POST['Secteur'];
+			$pdo->updtVisiteur($id,$nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$idSecteur);
 		}
 	break;
 	}
@@ -30,7 +46,7 @@ switch($action){
 		break;
 	}
 
-	case 'updtVisiteur':{
+	case 'getUpdtVisiteur':{
 		if(!empty($_GET)){
 			$id = $_GET['updtId'];
 			//echo "<script>alert('$id')</script>";

@@ -3,7 +3,7 @@
         <h2>Visiteur médicaux</h2>
     <?php
 
-        if ($_GET['action']=="updtVisiteur")
+        if ($_GET['action']=="getUpdtVisiteur")
         {
             $nom=$LeVisiteur['nom'];
             $prenom=$LeVisiteur['prenom'];
@@ -11,6 +11,7 @@
             $cp=$LeVisiteur['cp'];
             $ville=$LeVisiteur['ville'];
             $dateEmbauche=$LeVisiteur['dateEmbauche'];
+            $nomSecteur=$LeVisiteur['nomSecteur'];
             $idSecteur=$LeVisiteur['idSecteur'];
         }
         else   
@@ -21,6 +22,7 @@
             $cp="";
             $ville="";
             $dateEmbauche="";
+            $nomSecteur="";
             $idSecteur="";
         }
             echo'<div class="container">
@@ -31,9 +33,9 @@
                         </div>
                             <div class="panel-body">';
                             
-                             if (isset($_GET['UpdtId'])){
-                                $id=$_GET['UpdtId'];
-                                echo'<form method="POST" action="index.php?uc=visiteurs&action=NewVisiteur&UpdtId='.$id.'">';
+                             if (isset($_GET['updtId'])){
+                                $id=$_GET['updtId'];
+                                echo'<form method="POST" action="index.php?uc=visiteurs&action=updtVisiteur&updtId='.$id.'">';
                             }
                              else{
                                 echo'<form method="POST" action="index.php?uc=visiteurs&action=NewVisiteur">';
@@ -41,12 +43,12 @@
                                  echo'<div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
-                                            <input type="text" name="Nom" id="nom" class="form-control"placeholder="Nom" value="'.$nom.'" required>
+                                            <input type="text" name="nom" id="nom" class="form-control"placeholder="Nom" value="'.$nom.'" required>
                                          </div>
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
-                                            <input type="text" name="Prenom" id="prenom" class="form-control" placeholder="Prenom" value="'.$prenom.'" required>
+                                            <input type="text" name="prenom" id="prenom" class="form-control" placeholder="Prenom" value="'.$prenom.'" required>
                                         </div>
                                     </div>
                                  </div>
@@ -54,7 +56,7 @@
                                  <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
-                                            <input type="text" name="Adresse" id="adresse" class="form-control" placeholder="Adresse" value="'.$adresse.'" required>
+                                            <input type="text" name="adresse" id="adresse" class="form-control" placeholder="Adresse" value="'.$adresse.'" required>
                                         </div>
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6">
@@ -80,13 +82,13 @@
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
-                                            <select class="form-control" name="Specialite">';
+                                            <select class="form-control" name="Secteur">';
                                     
                                         foreach ($lesSecteurs as $leSecteur){
-                                            echo '<option value= '.$leSecteur['idSecteur'].' > '.$leSecteur['nomSecteur'].' </option>';
+                                            echo '<option value='.$leSecteur['idSecteur'].' > '.$leSecteur['nomSecteur'].' </option>';
                                         }
-                                        if (isset($_GET['UpdtCode'])){
-                                        echo'<option selected value="'.$idSecteur.'">'.$nom_secteur.'</option>';
+                                        if (isset($_GET['updtId'])){
+                                        echo'<option selected value="'.$idSecteur.'">'.$nomSecteur.'</option>';
                                         }
                                          ?>  
                                          </select>                         
@@ -94,7 +96,7 @@
                                     </div>
                                  </div>
                                 
-                                <?php if (isset($_GET['UpdtId']))
+                                <?php if (isset($_GET['updtId']))
                                 {
                                     echo'<input type="submit" value="Modifier" class="btn btn-info"/>';
                                 }
@@ -149,7 +151,7 @@
                     <td><?php echo $date_embauche ?></td>
                     <td><?php echo $nom_secteur ?></td>
                     <td><?php echo "<a href='index.php?uc=visiteurs&action=delVisiteur&delId=$LeId' title='Delete'><img src='./images/Delete_icon.png' alt='Delete' /></a>
-                    <a href='index.php?uc=visiteurs&action=updtVisiteur&updtId=$LeId' title='Update'><img src='./images/Update_icon.png' alt='Update' /></a>"
+                    <a href='index.php?uc=visiteurs&action=getUpdtVisiteur&updtId=$LeId' title='Update'><img src='./images/Update_icon.png' alt='Update' /></a>"
                     ?></td>
                 </tr>
                  <?php

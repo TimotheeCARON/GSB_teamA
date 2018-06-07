@@ -170,7 +170,7 @@ class PdoGsb{
 			}
 
 		public function updtVisiteur($id,$nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$id_secteur){
-			$req = "UPDATE visiteur_medical SET nom = '$nom', prenom = '$prenom', adresse = '$adresse', cp = '$cp', ville = $dateEmbauche, idSecteur= '$id_secteur' WHERE id = $id ;";
+			$req = "UPDATE visiteur_medical SET nom = '$nom', prenom = '$prenom', adresse = '$adresse', cp = '$cp', ville = '$ville', dateEmbauche='$dateEmbauche', idSecteur= '$id_secteur' WHERE id = $id ;";
 			$res = PdoGsb::$monPdo->query($req);
 		}
 

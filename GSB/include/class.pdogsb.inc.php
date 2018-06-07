@@ -131,14 +131,14 @@ class PdoGsb{
 	//Visiteurs
 		
 		public function getVisiteur (){
-		$req = "select v.id, V.nom, v.prenom, v.adresse, v.cp, v.ville, v.dateEmbauche, v.idSecteur, l.nomSecteur FROM visiteur_medical AS v INNER JOIN localisation AS l on v.idSecteur=l.idSecteur ";
+		$req = "select v.id, v.nom, v.prenom, v.adresse, v.cp, v.ville, v.dateEmbauche, v.idSecteur, l.nomSecteur FROM visiteur_medical AS v INNER JOIN localisation AS l on v.idSecteur=l.idSecteur ";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 		}
 
 		public function getVisite(){
-		$req = "select v.id, V.nom, v.prenom, v.adresse, v.cp, v.ville, v.dateEmbauche, vi.date_visite FROM visiteur_medical AS v INNER JOIN visiter AS vi on v.id=vi.id ;";
+		$req = "select v.id, v.nom, v.prenom, v.adresse, v.cp, v.ville, v.dateEmbauche, vi.date_visite FROM visiteur_medical AS v INNER JOIN visiter AS vi on v.id=vi.id ;";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;

@@ -48,43 +48,43 @@ else{
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control name="nomMedoc" id="nomMedoc" value="'.$nom.'" placeholder="Nom du médicament">
+                                        <input type="text" class="form-control" name="nomMedoc" id="nomMedoc" value="'.$nom.'" placeholder="Nom du médicament" required>
                                     </div> 
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control name="Effet_therapeutique" id="Effet_therapeutique" value="'.$effet.'" placeholder="Effet thérapeutique">
+                                        <input type="text" class="form-control" name="Effet_therapeutique" id="Effet_therapeutique" value="'.$effet.'" placeholder="Effet thérapeutique" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control name="Contre_indication" id="Contre_indication" value="'.$contre_indication.'" placeholder="Contre indication">
+                                        <input type="text" class="form-control" name="Contre_indication" id="Contre_indication" value="'.$contre_indication.'" placeholder="Contre indication" required>
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control name="Presentation" id="Presentation" value="'.$presentation.'" placeholder="Presentation">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control name="Dosage" id="Dosage" value="'.$dosage.'" placeholder="Dosage">
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control name="pxHT" id="pxHT" value="'.$prix_HT.'" placeholder="pxHT">
+                                        <input type="text" class="form-control" name="Presentation" id="Presentation" value="'.$presentation.'" placeholder="Presentation" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control name="pxEchantillon" id="pxEchantillon" value="'.$prix_echantillon.'" placeholder="pxEchantillon">
+                                        <input type="text" class="form-control" name="Dosage" id="Dosage" value="'.$dosage.'" placeholder="Dosage" required>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="pxHT" id="pxHT" value="'.$prix_HT.'" placeholder="pxHT" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="pxEchantillon" id="pxEchantillon" value="'.$prix_echantillon.'" placeholder="pxEchantillon" required>
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6">

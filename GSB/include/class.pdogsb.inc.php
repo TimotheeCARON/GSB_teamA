@@ -73,14 +73,14 @@ class PdoGsb{
 
 	//Medicaments
 		public function getMedicaments (){
-		$req = "select M.id_produit,M.Nom_commercial,M.Effet_therapeutique,M.Contre_indication,M.Presentation,M.Dosage,M.pxHT,M.pxEchantillon,F.nomFamille FROM Medicament AS M INNER JOIN famille AS F on M.idFamille=F.idFamille order by M.id_produit;";
+		$req = "select M.id_produit,M.Nom_commercial,M.Effet_therapeutique,M.Contre_indication,M.Presentation,M.Dosage,M.pxHT,M.pxEchantillon,F.nomFamille FROM medicament AS M INNER JOIN famille AS F on M.idFamille=F.idFamille order by M.id_produit;";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 	}
 
 		public function getLeMedicament ($id){
-		$req = "select M.id_produit,M.Nom_commercial,M.Effet_therapeutique,M.Contre_indication,M.Presentation,M.Dosage,M.pxHT,M.pxEchantillon,F.nomFamille FROM Medicament AS M INNER JOIN famille AS F on M.idFamille=F.idFamille WHERE M.id_produit='$id';";
+		$req = "select M.id_produit,M.Nom_commercial,M.Effet_therapeutique,M.Contre_indication,M.Presentation,M.Dosage,M.pxHT,M.pxEchantillon,F.nomFamille FROM medicament AS M INNER JOIN famille AS F on M.idFamille=F.idFamille WHERE M.id_produit='$id';";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetch();
 		return $lesLignes;

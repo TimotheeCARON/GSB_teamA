@@ -170,13 +170,13 @@ class PdoGsb{
 			}
 
 		public function updtVisiteur($id,$nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$id_secteur){
-			$req = "UPDATE praticien SET nom = '$nom', prenom = '$prenom', adresse = '$adresse', cp = '$cp', ville = $dateEmbauche, idSecteur= '$id_secteur' WHERE id = $id ;";
+			$req = "UPDATE visiteur_medical SET nom = '$nom', prenom = '$prenom', adresse = '$adresse', cp = '$cp', ville = $dateEmbauche, idSecteur= '$id_secteur' WHERE id = $id ;";
 			$res = PdoGsb::$monPdo->query($req);
 		}
 
 	//Praticiens
-		public function getPraticiens (){
-		$req = "select P.Code, P.Raison_sociale, P.Adresse, P.Telephone, P.Contact, P.Coef_notoriete, P.coef_confiance, S.nomSpecialite FROM Praticien AS P INNER JOIN Specialite AS S on S.idSpecialite=P.idSpecialite;";
+	public function getPraticiens (){
+		$req = "select P.Code, P.Raison_sociale, P.Adresse, P.Telephone, P.Contact, P.Coef_notoriete, P.coef_confiance, S.nomSpecialite FROM praticien AS P INNER JOIN specialite AS S on S.idSpecialite=P.idSpecialite;";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
@@ -201,7 +201,7 @@ class PdoGsb{
 		}
 
 		public function getPraticiensWithCode ($Code){
-			$req = "select P.Code, P.Raison_sociale, P.Adresse, P.Telephone, P.Contact, P.Coef_notoriete, P.coef_confiance, S.nomSpecialite, S.idSpecialite FROM Praticien AS P INNER JOIN Specialite AS S on S.idSpecialite=P.idSpecialite WHERE P.Code = $Code;";
+			$req = "select P.Code, P.Raison_sociale, P.Adresse, P.Telephone, P.Contact, P.Coef_notoriete, P.coef_confiance, S.nomSpecialite, S.idSpecialite FROM praticien AS P INNER JOIN specialite AS S on S.idSpecialite=P.idSpecialite WHERE P.Code = $Code;";
 			$res = PdoGsb::$monPdo->query($req);
 			$lesLignes = $res->fetch();
 			return $lesLignes;

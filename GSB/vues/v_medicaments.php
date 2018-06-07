@@ -24,8 +24,8 @@ else{
 ?>
 <div class="text-center">
     <div id="contenu">
+    <h2> Medicaments </h2>
         <div id="contenu" class="container">
-            <h2> Medicaments </h2>
             <div class="row centered-form">
                 
                 <div class="panel panel-default">
@@ -104,10 +104,10 @@ else{
                         </div>
                         <?php
                         if (isset($_GET['UpdtId'])){
-                            echo '<input type="submit" value="Modifier" class="btn btn-info btn-block"/>';
+                            echo '<input type="submit" value="Modifier" class="btn btn-info"/>';
                         }
                         else{
-                            echo '<input type="submit" value="Envoyer" class="btn btn-info btn-block"/>';
+                            echo '<input type="submit" value="Envoyer" class="btn btn-info"/>';
                         }
                         ?>
                     </form>

@@ -13,16 +13,16 @@ switch($action){
 		$mdp = $_REQUEST['mdp'];
 		$visiteur = $pdo->getInfosUtilisateur($login,$mdp);
 		if(!is_array( $visiteur)){
-			ajouterErreur("Login ou mot de passe incorrect");
-			include("vues/v_erreurs.php");
 			include("vues/v_connexion.php");
+			echo'<p><font color="red">Login ou mot de passe incorrect</font></p>';
 		}
 		else{
 			$id = $visiteur['id'];
 			$nom =  $visiteur['nom'];
 			$prenom = $visiteur['prenom'];
 			connecter($id,$nom,$prenom);
-			include("controleurs/c_accueil.php");
+			include("vues/v_sommaire.php");
+			include("vues/v_accueil.php");
 		}
 		break;
 	}

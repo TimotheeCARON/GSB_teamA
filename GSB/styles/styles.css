@@ -21,6 +21,10 @@ table.listeLegere {
     margin-bottom : 0.5em;
 }
 
+input.btn.btn-info {
+  width: 20%;
+}
+
 /* Tableaux quadrill�s utilis�s pour l'affichage de listes avec contenu l�ger*/ 
 table.listeLegere th, table.listeLegere td {
   border : dotted rgb(178,207,81) 0.1em;

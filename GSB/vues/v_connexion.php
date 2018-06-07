@@ -25,11 +25,11 @@
         <input class="form-control" placeholder="Password" id="mdp"  type="password"  name="mdp" value="" required="">
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block">
+        <button type="submit" id="BtnConnexion" class="btn btn-primary btn-block">
           Connexion
         </button>
       </div>
     </fieldset>
   </form>
 </div>
-
+<script type="text/javascript" src="js/script.js"></script>

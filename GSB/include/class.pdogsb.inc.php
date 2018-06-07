@@ -60,13 +60,7 @@ class PdoGsb{
  * @param $mdp
  * @return l'id, le nom et le prénom sous la forme d'un tableau associatif 
 */
-	/*public function getInfosVisiteur($login, $mdp){
-		$req = "select visiteur.id as id, visiteur.nom as nom, visiteur.prenom as prenom from visiteur 
-		where visiteur.login='$login' and visiteur.mdp='$mdp'";
-		$rs = PdoGsb::$monPdo->query($req);
-		$ligne = $rs->fetch();
-		return $ligne;
-	}*/
+
 	public function getInfosUtilisateur($login, $mdp){
 		$req = "select utilisateur.id as id, utilisateur.nom as nom, utilisateur.prenom as prenom from utilisateur 
 		where utilisateur.login='$login' and utilisateur.mdp='$mdp'";
@@ -75,87 +69,7 @@ class PdoGsb{
 		return $ligne;
 	}
 
-/**
- * Retourne sous forme d'un tableau associatif toutes les lignes de frais hors forfait
- * concernées par les deux arguments
- 
- * La boucle foreach ne peut être utilisée ici car on procède
- * à une modification de la structure itérée - transformation du champ date-
- 
- * @param $idVisiteur 
- * @param $mois sous la forme aaaamm
- * @return tous les champs des lignes de frais hors forfait sous la forme d'un tableau associatif 
-*/
-	/*public function getLesFraisHorsForfait($idVisiteur,$mois){
-	    $req = "select * from lignefraishorsforfait where lignefraishorsforfait.idvisiteur ='$idVisiteur' 
-		and lignefraishorsforfait.mois = '$mois' ";	
-		$res = PdoGsb::$monPdo->query($req);
-		$lesLignes = $res->fetchAll();
-		$nbLignes = count($lesLignes);
-		for ($i=0; $i<$nbLignes; $i++){
-			$date = $lesLignes[$i]['date'];
-			$lesLignes[$i]['date'] =  dateAnglaisVersFrancais($date);
-		}
-		return $lesLignes; 
-	}*/
-/**
- * Retourne le nombre de justificatif d'un visiteur pour un mois donné
- 
- * @param $idVisiteur 
- * @param $mois sous la forme aaaamm
- * @return le nombre entier de justificatifs 
-*/
-	/*public function getNbjustificatifs($idVisiteur, $mois){
-		$req = "select fichefrais.nbjustificatifs as nb from  fichefrais where fichefrais.idvisiteur ='$idVisiteur' and fichefrais.mois = '$mois'";
-		$res = PdoGsb::$monPdo->query($req);
-		$laLigne = $res->fetch();
-		return $laLigne['nb'];
-	}*/
-/**
- * Retourne sous forme d'un tableau associatif toutes les lignes de frais au forfait
- * concernées par les deux arguments
- 
- * @param $idVisiteur 
- * @param $mois sous la forme aaaamm
- * @return l'id, le libelle et la quantité sous la forme d'un tableau associatif 
-*/
-	/*public function getLesFraisForfait($idVisiteur, $mois){
-		$req = "select fraisforfait.id as idfrais, fraisforfait.libelle as libelle, 
-		lignefraisforfait.quantite as quantite from lignefraisforfait inner join fraisforfait 
-		on fraisforfait.id = lignefraisforfait.idfraisforfait
-		where lignefraisforfait.idvisiteur ='$idVisiteur' and lignefraisforfait.mois='$mois' 
-		order by lignefraisforfait.idfraisforfait";	
-		$res = PdoGsb::$monPdo->query($req);
-		$lesLignes = $res->fetchAll();
-		return $lesLignes; 
-	}*/
-/**
- * Retourne tous les id de la table FraisForfait
- 
- * @return un tableau associatif 
-*/
-	/*public function getLesIdFrais(){
-		$req = "select fraisforfait.id as idfrais from fraisforfait order by fraisforfait.id";
-		$res = PdoGsb::$monPdo->query($req);
-		$lesLignes = $res->fetchAll();
-		return $lesLignes;
-	}
 
-	public function getMontantFrais(){
-		$req = "select libelle,montant,id from fraisforfait";
-		$res = PdoGsb::$monPdo->query($req);
-		$lesLignes = $res->fetchAll();
-		return $lesLignes;
-	}
-
-	public function updateFrais($MAJlesFrais){
-		$lesCles = array_keys($MAJlesFrais);
-		foreach($lesCles as $unIdFrais){
-		$req = "update fraisforfait set montant = '$montant' where id = '$id;";
-		PdoGsb::$monPdo->exec($req);
-		echo $req;
-		}
-	}*/
 
 	//Medicaments
 		public function getMedicaments (){
@@ -217,18 +131,25 @@ class PdoGsb{
 	//Visiteurs
 		
 		public function getVisiteur (){
-		$req = "select id, nom, prenom, adresse, cp, ville, dateEmbauche, idSecteur from visiteur_medical;";
+		$req = "select v.id, V.nom, v.prenom, v.adresse, v.cp, v.ville, v.dateEmbauche, v.idSecteur, l.nomSecteur FROM visiteur_medical AS v INNER JOIN localisation AS l on v.idSecteur=l.idSecteur ";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 		}
 
 		public function getVisite(){
-		$req = "select V.id, V.nom, V.prenom, V.adresse, V.cp, V.ville,V.dateEmbauche, Vi.date_visite FROM Visiteur_medical AS V INNER JOIN visiter AS Vi on V.id=Vi.id ;";
+		$req = "select v.id, V.nom, v.prenom, v.adresse, v.cp, v.ville, v.dateEmbauche, vi.date_visite FROM visiteur_medical AS v INNER JOIN visiter AS vi on v.id=vi.id ;";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 		}
+
+		public function getSecteur(){
+			$req = "select * FROM localisation;";
+			$res = PdoGsb::$monPdo->query($req);
+			$lesLignes = $res->fetchAll();
+			return $lesLignes;
+			}
 
 		public function setVisiteur ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$id_secteur){
 			$req = "INSERT INTO visiteur_medical (nom,prenom,adresse,cp,ville,dateEmbauche,idSecteur) 
@@ -242,7 +163,7 @@ class PdoGsb{
 		}
 
 		public function getVisiteurWithId ($id){
-			$req = "select id, nom, prenom, adresse, cp, ville, dateEmbauche, idSecteur FROM visiteur_medical WHERE id= $id;";
+			$req = "select v.id, V.nom, v.prenom, v.adresse, v.cp, v.ville, v.dateEmbauche, v.idSecteur, l.nomSecteur FROM visiteur_medical AS v INNER JOIN localisation AS l on v.idSecteur=l.idSecteur WHERE id= $id";
 			$res = PdoGsb::$monPdo->query($req);
 			$lesLignes = $res->fetch();
 			return $lesLignes;
@@ -260,22 +181,24 @@ class PdoGsb{
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 		}
+
 		public function getSpecialite(){
 		$req = "select * FROM specialite;";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
-		}								
+		}
+
 		public function setPraticiens ($Contact,$Telephone,$RaisonSociale,$Adresse,$CoeffNot,$CoeffConf,$Specialite){
 		$req = "INSERT INTO praticien (Contact, Telephone, Raison_sociale, Adresse, Coef_notoriete, coef_confiance, idSpecialite) 
 		VALUES ('$Contact','$Telephone','$RaisonSociale','$Adresse',$CoeffNot,$CoeffConf,$Specialite)";
 		$res = PdoGsb::$monPdo->query($req);
 		}
+
 		public function delPraticiens ($Code){
 			$req = "DELETE FROM praticien WHERE Code = $Code";
 			$res = PdoGsb::$monPdo->query($req);
 		}
-
 
 		public function getPraticiensWithCode ($Code){
 			$req = "select P.Code, P.Raison_sociale, P.Adresse, P.Telephone, P.Contact, P.Coef_notoriete, P.coef_confiance, S.nomSpecialite, S.idSpecialite FROM Praticien AS P INNER JOIN Specialite AS S on S.idSpecialite=P.idSpecialite WHERE P.Code = $Code;";
@@ -283,6 +206,7 @@ class PdoGsb{
 			$lesLignes = $res->fetch();
 			return $lesLignes;
 			}
+
 		public function updtPraticiens($Code,$Contact,$Telephone,$RaisonSociale,$Adresse,$CoeffNot,$CoeffConf,$Specialite){
 			$req = "UPDATE praticien SET Raison_sociale = '$RaisonSociale', Adresse = '$Adresse', Telephone = '$Telephone', Contact = '$Contact', Coef_notoriete = $CoeffNot, Coef_confiance = $CoeffConf, idSpecialite = $Specialite WHERE Code = $Code ;";
 			$res = PdoGsb::$monPdo->query($req);

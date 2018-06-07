@@ -50,6 +50,7 @@
                                         </div>
                                     </div>
                                  </div>
+
                                  <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
@@ -62,6 +63,7 @@
                                         </div>
                                     </div>
                                  </div>
+
                                  <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
@@ -73,10 +75,12 @@
                                             <input type="text" name="dateEmbauche" id="dateEmbauche" class="form-control" input-sm" placeholder="Date d embauche" value="'.$dateEmbauche.'" required>
                                          </div>
                                      </div>
-                                        <div class="row">
-                                        <div class="col-xs-6 col-sm-6 col-md-6">
-                                            <div class="form-group">
-                                    <select class="form-control" name="Specialite">';
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <select class="form-control" name="Specialite">';
                                     
                                         foreach ($lesSecteurs as $leSecteur){
                                             echo '<option value= '.$leSecteur['idSecteur'].' > '.$leSecteur['nomSecteur'].' </option>';
@@ -84,9 +88,11 @@
                                         if (isset($_GET['UpdtCode'])){
                                         echo'<option selected value="'.$idSecteur.'">'.$nom_secteur.'</option>';
                                         }
-                                         ?>                           
-                            </div>
-                        </div>
+                                         ?>  
+                                         </select>                         
+                                        </div>
+                                    </div>
+                                 </div>
                                 
                                 <?php if (isset($_GET['UpdtId']))
                                 {
@@ -96,11 +102,14 @@
                                 {
                                     echo'<input type="submit" value="Ajouter" class="btn btn-info"/>';
                                 }
-                    ?>
+                                ?>
                     </form> 
+
+                          </div>
                         </div>
                       </div>
-                   </div>
+                    
+                  
                    
              
 <div id="contenu">
@@ -147,4 +156,5 @@
 			}
         ?>
     </table>
+</div>
 </div>

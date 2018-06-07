@@ -18,6 +18,7 @@ switch($action){
 			$idSecteur=$_POST['idSecteur'];
 			$pdo->setVisiteur ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$idSecteur);
 		}
+	break;
 	}
 
 	case 'delVisiteur':{

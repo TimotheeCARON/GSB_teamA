@@ -16,19 +16,19 @@
  */
 
 class PdoGsb{   
-		/*private static $serveur='mysql:host=172.17.21.12/phpmyadmin';
-      	private static $bdd='dbname=gsb_teamA';   		
+		private static $serveur='mysql:host=172.17.21.12';
+      	private static $bdd='dbname=gsb_teama';   		
       	private static $user='root' ;    		
       	private static $mdp='mdp' ;	
 		private static $monPdo;
-		private static $monPdoGsb=null;*/
+		private static $monPdoGsb=null;
 
-      	private static $serveur='mysql:host=localhost';
+      	/*private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=gsb_teama';   		
       	private static $user='root' ;    		
       	private static $mdp='root' ;	
 	private static $monPdo;
-	private static $monPdoGsb=null;
+	private static $monPdoGsb=null;*/
 /**
  * Constructeur privé, crée l'instance de PDO qui sera sollicitée
  * pour toutes les méthodes de la classe
@@ -163,7 +163,7 @@ class PdoGsb{
 		}
 
 		public function getVisiteurWithId ($id){
-			$req = "select v.id, V.nom, v.prenom, v.adresse, v.cp, v.ville, v.dateEmbauche, v.idSecteur, l.nomSecteur FROM visiteur_medical AS v INNER JOIN localisation AS l on v.idSecteur=l.idSecteur WHERE id= $id";
+			$req = "select v.id, v.nom, v.prenom, v.adresse, v.cp, v.ville, v.dateEmbauche, v.idSecteur, l.nomSecteur FROM visiteur_medical AS v INNER JOIN localisation AS l on v.idSecteur=l.idSecteur WHERE id= $id";
 			$res = PdoGsb::$monPdo->query($req);
 			$lesLignes = $res->fetch();
 			return $lesLignes;

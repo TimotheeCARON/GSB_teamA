@@ -1,31 +1,28 @@
 <?php
 include("vues/v_sommaire.php");
 $idVisiteur = $_SESSION['idVisiteur'];
+
 $action = $_REQUEST['action'];
 
 switch($action){
-	/*case 'AFFICHEVisiteurs':{
-		$lesVisiteurs = $_REQUEST['AfficherlesMedocs'];
-		
-	  	 	$pdo->AfficherMedocs($Numero,$Nom,$Famille,$Effet,$Presentation,$Dosage,$ContreIndication,$PrixHT,$PrixEchantillon);
-	}*/
 
  	case 'NewVisiteur':{
-	if(!empty($_POST)){
-		$nom=$_POST['nom'];
-		$prenom=$_POST['prenom'];
-		$adresse=$_POST['adresse'];
-		$cp=$_POST['cp'];
-		$ville=$_POST['ville'];
-		$dateEmbauche=$_POST['dateEmbauche'];
-		$nomSecteur=$_POST['nomSecteur'];
-		$pdo->setVisiteur ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$nomSecteur);
+		if(!empty($_POST))
+		{
+			$nom=$_POST['nom'];
+			$prenom=$_POST['prenom'];
+			$adresse=$_POST['adresse'];
+			$cp=$_POST['cp'];
+			$ville=$_POST['ville'];
+			$dateEmbauche=$_POST['dateEmbauche'];
+			$idSecteur=$_POST['idSecteur'];
+			$pdo->setVisiteur ($nom,$prenom,$adresse,$cp,$ville,$dateEmbauche,$idSecteur);
 		}
 	}
 
-	case 'DelVisiteur':{
+	case 'delVisiteur':{
 		if(!empty($_GET)){
-			$id = $_GET['DelId'];
+			$id = $_GET['delId'];
 			$pdo->delVisiteur($id);
 			//echo "<script>alert('$id')</script>";
 		}
@@ -34,7 +31,7 @@ switch($action){
 
 	case 'updtVisiteur':{
 		if(!empty($_GET)){
-			$id = $_GET['UpdtId'];
+			$id = $_GET['updtId'];
 			//echo "<script>alert('$id')</script>";
 			$LeVisiteur = $pdo->getVisiteurWithId($id);
 			//$var=$LeVisiteur['Contact'];
@@ -45,6 +42,7 @@ switch($action){
 
 }
 $lesVisiteurs= $pdo->getVisiteur();
+$lesVisites= $pdo->getVisite();
 $lesSecteurs= $pdo->getSecteur();
 
 include("vues/v_visiteurs.php");

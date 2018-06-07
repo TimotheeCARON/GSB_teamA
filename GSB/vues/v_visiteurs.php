@@ -41,36 +41,36 @@
                                  echo'<div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
-                                            <input type="text" name="Nom" id="nom" class="form-control input-sm" placeholder="Nom" value="'.$nom.'" required>
+                                            <input type="text" name="Nom" id="nom" class="form-control"placeholder="Nom" value="'.$nom.'" required>
                                          </div>
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
-                                            <input type="text" name="Prenom" id="prenom" class="form-control input-sm" placeholder="Prenom" value="'.$prenom.'" required>
+                                            <input type="text" name="Prenom" id="prenom" class="form-control" placeholder="Prenom" value="'.$prenom.'" required>
                                         </div>
                                     </div>
                                  </div>
                                  <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
-                                            <input type="text" name="Adresse" id="adresse" class="form-control input-sm" placeholder="Adresse" value="'.$adresse.'" required>
+                                            <input type="text" name="Adresse" id="adresse" class="form-control" placeholder="Adresse" value="'.$adresse.'" required>
                                         </div>
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
-                                            <input type="text" name="cp" id="cp" class="form-control input-sm" placeholder="Code Postal" value="'.$cp.'" required>
+                                            <input type="text" name="cp" id="cp" class="form-control" placeholder="Code Postal" value="'.$cp.'" required>
                                         </div>
                                     </div>
                                  </div>
                                  <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
-                                            <input type="text" name="ville" id="ville" class="form-control input-sm" placeholder="Ville" value="'.$ville.'" required>
+                                            <input type="text" name="ville" id="ville" class="form-control" placeholder="Ville" value="'.$ville.'" required>
                                          </div>
                                      </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
-                                            <input type="text" name="dateEmbauche" id="dateEmbauche" class="form-control input-sm" placeholder="Date d embauche" value="'.$dateEmbauche.'" required>
+                                            <input type="text" name="dateEmbauche" id="dateEmbauche" class="form-control" input-sm" placeholder="Date d embauche" value="'.$dateEmbauche.'" required>
                                          </div>
                                      </div>
                                         <div class="row">
@@ -139,8 +139,8 @@
                     <td><?php echo $ville ?></td>
                     <td><?php echo $date_embauche ?></td>
                     <td><?php echo $nom_secteur ?></td>
-                    <td><?php echo "<a href='index.php?uc=visiteurs&action=DelVisiteur&DelId=$LeId' title='Delete'><img src='./images/Delete_icon.png' alt='Delete' /></a>
-                    <a href='index.php?uc=visiteurs&action=updtVisiteur&UpdtId=$LeId' title='Update'><img src='./images/Update_icon.png' alt='Update' /></a>"
+                    <td><?php echo "<a href='index.php?uc=visiteurs&action=delVisiteur&delId=$LeId' title='Delete'><img src='./images/Delete_icon.png' alt='Delete' /></a>
+                    <a href='index.php?uc=visiteurs&action=updtVisiteur&updtId=$LeId' title='Update'><img src='./images/Update_icon.png' alt='Update' /></a>"
                     ?></td>
                 </tr>
                  <?php

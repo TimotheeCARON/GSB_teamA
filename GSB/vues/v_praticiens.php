@@ -111,11 +111,12 @@
                                 
                                 <?php if (isset($_GET['UpdtCode']))
                                 {
-                                    echo'<input type="submit" value="Modifier" class="btn btn-info"/>';
+                                    ?><input type="submit" value="Modifier" class="btn btn-info" onClick="return confirm('Modifier le praticien ?')"/>
+                                    <?php
                                 }
                                 else
                                 {
-                                    echo'<input type="submit" value="Ajouter" class="btn btn-info"/>';
+                                    ?><input type="submit" value="Ajouter" class="btn btn-info" onClick="return confirm('Ajouter le praticien ?')"/><?php
                                 }
                                 ?>
                             </form>

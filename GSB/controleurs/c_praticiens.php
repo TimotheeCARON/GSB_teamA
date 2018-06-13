@@ -9,16 +9,26 @@ switch($action){
 	case 'AddPraticiens':{
 		if(!empty($_POST))
 		{
+			
+				$Contact = $_POST['Contact'];
+				$Telephone = $_POST['Telephone'];
+				$RaisonSociale = $_POST['RaisonSociale'];
+				$Adresse =$_POST['Adresse'];
+				$CoeffNot = $_POST['CoeffNot'];
+				$CoeffConf = $_POST['CoeffConf'];
+				$Specialite = $_POST['Specialite'];
 
-			$Contact = $_POST['Contact'];
-			$Telephone = $_POST['Telephone'];
-			$RaisonSociale = $_POST['RaisonSociale'];
-			$Adresse =$_POST['Adresse'];
-			$CoeffNot = $_POST['CoeffNot'];
-			$CoeffConf = $_POST['CoeffConf'];
-			$Specialite = $_POST['Specialite'];
-		
-			$pdo->setPraticiens($Contact,$Telephone,$RaisonSociale,$Adresse,$CoeffNot,$CoeffConf,$Specialite);	
+				try
+			{		
+				$pdo->setPraticiens($Contact,$Telephone,$RaisonSociale,$Adresse,$CoeffNot,$CoeffConf,$Specialite);	
+				
+			}
+			catch (Exception $e)
+			{
+				 echo 'Caught exception: ',  $e->getMessage(), "\n";
+				 echo "<script>alert(\"coucou\")</script>";
+			}
+			
 		}
 		break;
 	}

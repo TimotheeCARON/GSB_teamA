@@ -192,12 +192,12 @@ class PdoGsb{
 		public function setPraticiens ($Contact,$Telephone,$RaisonSociale,$Adresse,$CoeffNot,$CoeffConf,$Specialite){
 		$req = "INSERT INTO praticien (Contact, Telephone, Raison_sociale, Adresse, Coef_notoriete, coef_confiance, idSpecialite) 
 		VALUES ('$Contact','$Telephone','$RaisonSociale','$Adresse',$CoeffNot,$CoeffConf,$Specialite)";
-		$res = PdoGsb::$monPdo->query($req);
+		PdoGsb::$monPdo->query($req);
 		}
 
 		public function delPraticiens ($Code){
 			$req = "DELETE FROM praticien WHERE Code = $Code";
-			$res = PdoGsb::$monPdo->query($req);
+			PdoGsb::$monPdo->query($req);
 		}
 
 		public function getPraticiensWithCode ($Code){
@@ -209,7 +209,7 @@ class PdoGsb{
 
 		public function updtPraticiens($Code,$Contact,$Telephone,$RaisonSociale,$Adresse,$CoeffNot,$CoeffConf,$Specialite){
 			$req = "UPDATE praticien SET Raison_sociale = '$RaisonSociale', Adresse = '$Adresse', Telephone = '$Telephone', Contact = '$Contact', Coef_notoriete = $CoeffNot, Coef_confiance = $CoeffConf, idSpecialite = $Specialite WHERE Code = $Code ;";
-			$res = PdoGsb::$monPdo->query($req);
+			PdoGsb::$monPdo->query($req);
 		}
 
 }
